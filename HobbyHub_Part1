@@ -1,0 +1,146 @@
+CSCI 3308 – Project Proposaal, Repository, Tracker, and Requirements
+for: Group 8
+09/23/2015
+
+
+→ Who (people on the team) ← 
+Weipeng Cao (wwcao@colorado.edu)
+Lacey Conrad (laco9372@colorado.edu)
+Austin Linn (linnaj@colorado.edu)
+Dmytro Ryzhkov (dmry2547@colorado.edu)
+→  Title (of the project) ← 
+Hobby Hub
+→  Description (short description of the project) ← 
+A networking website for crafts, hobbies and similar interests.
+→  Vision Statement (what you would tell potential customers) ← 
+Connect with people with similar interests, hobbies, and crafts.
+→  Motivation (why would you develop this?) ← 
+So far, a popular website like this does not exist.  People frequently like to exchange ideas or form interest groups based off their hobbies and crafts.
+→  Risks (to project completion) ← 
+- Trying to incorporate too many topics.
+- Scalability
+- Drawing people to use the website (advertisement)
+- Whether or not to leave it strictly social or add a wiki section
+→  VCS ← 
+Name of version control software you will use:
+GitHub
+Link to repository:
+https://github.com/Rikka12580/group8
+
+→ User Requirements ← 
+User will need an account
+Be able to create a group
+Be able to join a group
+Be able to find a group
+Be able to communicate (posts, etc)
+
+
+→ Functional Requirements ← 
+Databases:
+-to keep old groups and information
+-to store user information/preferences
+-various search tools: existing groups, similar groups, location, age groups, etc.
+Interface to navigate around website
+
+
+
+Ability to manage groups (store info, create, delete)
+
+
+
+
+Ability to administrate (database and people who use the website)
+
+
+
+
+Queries to store and access information
+
+
+
+
+Memory usage (storage of database)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+→ Non-Functional Requirements ←
+
+ID
+Description
+Agile Sizing
+Priority
+
+
+Advertisement (how to get people interested in using the website
+
+
+
+
+Interface
+
+
+
+
+How to fund
+
+
+
+
+Do we need user agreements/Legal 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+→ Methodology ← 
+Agile
+→ Project tracking software ←
+Name:
+Trello
+Link to project tracking website:
+https://trello.com/hobbyhub
+→ Project plan ← 
+
+
