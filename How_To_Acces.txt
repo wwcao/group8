@@ -1,0 +1,5 @@
+cd into the directory called "basic"
+cd into the directory called "web"
+start local server with this command in the web directory:
+    php -S localhost:8000
+type http://localhost:8000  into browser to see the website
