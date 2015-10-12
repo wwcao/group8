@@ -18,7 +18,7 @@ $this->title = 'HobbyHub';
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Meet</h2>
+                <h2>Discuss</h2>
 
                 <p>HobbyHub is the first website of its kind! Connect with users from around the world who share the same interests as you. Share your ideas, or read the ideas of others!</p>
 
