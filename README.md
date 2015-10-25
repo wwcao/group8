@@ -1,2 +1,8 @@
-# group8
-CSCI 3308 project repo for Group 8!
+
+
+
+
+
+
+
+added Signup page by weipeng cao
