@@ -8,9 +8,43 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\EntryForm;
+use app\models\SignupForm;
 
 class SiteController extends Controller
 {
+	public function actionSignup()
+	{	
+		$model = new SignupForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+			return $this->render('say', ['model' => $model]);
+		} else {
+			return $this->render('signup', ['model' => $model]);
+        }
+    }
+		
+	public function actionSay($model)
+	{
+		return $this->render('say', ['model'=>$model]);
+	}
+
+	public function actionEntry()
+    {
+        $model = new EntryForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // valid data received in $model
+
+            // do something meaningful here about $model ...
+
+            return $this->render('entry-confirm', ['model' => $model]);
+        } else {
+            // either the page is initially displayed or there is some validation error
+            return $this->render('entry', ['model' => $model]);
+        }
+    }	
+
     public function behaviors()
     {
         return [
