@@ -83,7 +83,10 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+		$addr = [];
+        //return $this->render('index');
+		return $this->render('index', ['addr'=> $addr,
+				]);
     }
 
     public function actionLogin()
