@@ -11,7 +11,7 @@ $this->title = 'HobbyHub';
 
         <p class="lead">Welcome to HobbyHub! A network where you can talk to others about what you love doing!</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://localhost:8000/index.php?r=site%2Flogin">Click here to sign up!</a></p>
+        <p><a class="btn btn-lg btn-success" href="index.php?r=site%2Fsignup">Click here to sign up!</a></p>
     </div>
 
     <div class="body-content">

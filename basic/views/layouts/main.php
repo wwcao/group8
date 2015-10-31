@@ -47,7 +47,6 @@ AppAsset::register($this);
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ],
-			['label'=>'Sign up', 'url' => ['site/signup']],
 				
         ],
     ]);

@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 ?>
 <?php $form = ActiveForm::begin(); ?>
-
+	<!--	Adding fields: add variable in models/SignupForm.php -->
     <?= $form->field($model, 'username') ?>
     <?= $form->field($model, 'password') ?>
 

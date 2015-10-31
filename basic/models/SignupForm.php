@@ -6,6 +6,10 @@ use yii\base\Model;
 
 class SignupForm extends Model
 {
+	/*
+		1. add variables for signup page
+		2. add rule for the fields
+	*/
  	public $username;
 	public $password;
    	public $f_name;
