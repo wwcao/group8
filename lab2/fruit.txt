@@ -1,0 +1,42 @@
+*** fruitsOld.txt	2015-01-20 18:32:16.000000000 -0700
+--- fruitsNew.txt	2015-01-20 18:32:32.000000000 -0700
+***************
+*** 9,15 ****
+  Camu Camu berry
+  Cherries
+  Coconut
+- Cranberry
+  Cucumber
+  Currents
+  Dates
+--- 9,14 ----
+***************
+*** 19,24 ****
+--- 18,24 ----
+  Gooseberry
+  Grapefruit
+  Grapes
++ Jackfruit
+  Kiwi
+  Kumquat
+  Lemon
+***************
+*** 29,35 ****
+  Mangosteen
+  Melon
+  Mulberry
+- Nectarine
+  Orange
+  Papaya
+  Passion Fruit
+--- 29,34 ----
+***************
+*** 39,45 ****
+  Plum
+  Pomegranate
+  Pomelo 
+- Prickly Pear
+  Prunes
+  Raspberries
+  Strawberries
+--- 38,43 ----

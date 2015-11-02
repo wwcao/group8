@@ -1,0 +1,38 @@
+-- Question 1
+select name
+from store
+where price > 1
+order by name asc;
+
+-- Question 2
+select Qty, price,
+Qty * price as 'total'
+from store;
+
+-- Question 3
+select Qty, price, Qty * price 
+as total
+sum(total) as totalsum
+from store;
+
+-- Question 4
+
+-- Question 5
+select course.name
+from course, dept
+where course.deptId=dept.Id
+and dept.name='CSC';
+-- Question 6
+select sum(count) 
+as enrollcount
+from enrollment;
+
+-- Question 7
+select count(*) from enrollment;
+-- Question 8
+
+-- Question 9
+
+-- Question 10
+
+-- Question 11
