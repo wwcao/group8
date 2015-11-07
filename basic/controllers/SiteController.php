@@ -8,7 +8,6 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\EntryForm;
 use app\models\SignupForm;
 
 class SiteController extends Controller
@@ -28,7 +27,7 @@ class SiteController extends Controller
 	{
 		return $this->render('say', ['model'=>$model]);
 	}
-
+/* Sample Code
 	public function actionEntry()
     {
         $model = new EntryForm();
@@ -44,7 +43,7 @@ class SiteController extends Controller
             return $this->render('entry', ['model' => $model]);
         }
     }	
-
+*/ 
     public function behaviors()
     {
         return [
