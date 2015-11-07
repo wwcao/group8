@@ -26,5 +26,14 @@ class SignupForm extends Model
             ['email', 'email'],
         ];
     }
+	public function releaseErrorModel()
+	{
+		$this->username = 'Unknown Error';
+        $this->email = 'Unknown Error';
+        $this->password = '********';
+        $this->f_name = 'Unknown Error';
+        $this->l_name = 'Unknown Error';
+		return $this;
+	}
 }
 

@@ -44,4 +44,12 @@ class Users extends \yii\db\ActiveRecord
             'email' => 'Email',
         ];
     }
+
+	public function addNewUser($new_user)
+	{	
+		$this->username = $new_user->username;
+		$this->password = $new_user->password;
+		$this->email = $new_user->email;
+		return $this->save();
+	}
 }
