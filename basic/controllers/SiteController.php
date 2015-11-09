@@ -22,6 +22,7 @@ class SiteController extends Controller
 			
 			if($new_user->findOne($model->username)){
 				$model->password = '';
+				$model->userExist('username', []);
 				return $this->render('signup', ['model' => $model]);	
 			} else {
 				if($new_user->addNewUser($model)) {

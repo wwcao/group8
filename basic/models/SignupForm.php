@@ -35,5 +35,9 @@ class SignupForm extends Model
         $this->l_name = 'Unknown Error';
 		return $this;
 	}
+	public function userExist($attribute, $params)
+	{
+		$this->addError($attribute, 'username exists');
+	}
 }
 
