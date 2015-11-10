@@ -18,26 +18,7 @@ class SiteController extends Controller
 		$model = new SignupForm();
 		
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-			$new_user = new Users();//Users::findOne($model->username);
-			
-			if($new_user->findOne($model->username)){
-				$model->password = '';
-				$model->userExist('username', []);
-				return $this->render('signup', ['model' => $model]);	
-			} else {
-				if($new_user->addNewUser($model)) {
-					return $this->render('say', ['model' => $model]);
-				} else {
-					/*
-					$model->username = 'Unknown Error';
-					$model->email = 'Unknown Error';
-					$model->password = '********';
-					$model->f_name = 'Unknown Error';
-					$model->l_name = 'Unknown Error';
-					*/
-					return $this->render('say', ['model'=>$model.releaseErrorModel]);
-				}
-			}
+			return $this->render('say', ['model' => $model]);
 		} else {
 			return $this->render('signup', ['model' => $model]);
         }
