@@ -50,6 +50,21 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }
     
     /**
+     * Add a new user to the database
+     * @param SignupForm
+     * return Boolean: true if insertion succeed, otherwise, false.
+     */
+    public function addUser($model)
+    {
+        $this->id = '';
+        $this->username = $model->username;
+        $this->password = $model->password;
+        $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
+        $this->access_token = Yii::$app->getSecurity()->generateRandomString();
+        return $this->save();
+    }
+    
+    /**
      * @inheritdoc
      */
     public static function findIdentity($id)

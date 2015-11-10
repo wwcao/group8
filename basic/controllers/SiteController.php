@@ -9,25 +9,45 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SignupForm;
-use app\models\Users;
+use app\models\User;
 
 class SiteController extends Controller
 {
-	public function actionSignup()
-	{	
-		$model = new SignupForm();
+    /**
+     * Controll redirection of Signup Form
+     * 
+     * @return $this->render()
+     */
+    public function actionSignup()
+    {	
+	$model = new SignupForm();
 		
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-			return $this->render('say', ['model' => $model]);
-		} else {
-			return $this->render('signup', ['model' => $model]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) 
+        {
+            $findUser = User::findByUsername($model->username);
+            if($findUser)
+            {
+                $model->userExist('username', []);
+            } else {
+                $user = new User;
+                if($user->addUser($model))
+                {
+                    // succeed to add User
+                    return $this->render('say', ['model' => $model]);
+                } else {
+                    $model->releaseErrorModel();
+                }
+            }
         }
+        
+        // fail to add user, $model is changed branch statements
+        return $this->render('signup', ['model' => $model]);
     }
 		
-	public function actionSay($model)
-	{
-		return $this->render('say', ['model'=>$model]);
-	}
+    public function actionSay($model)
+    {
+	return $this->render('say', ['model'=>$model]);
+    }
 /* Sample Code
 	public function actionEntry()
     {
@@ -83,10 +103,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-		$addr = [];
+        $addr = [];
         //return $this->render('index');
-		return $this->render('index', ['addr'=> $addr,
-				]);
+	return $this->render('index', ['addr'=> $addr,]);
     }
 
     public function actionLogin()
