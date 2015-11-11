@@ -13,7 +13,7 @@ use app\models\User;
 
 class SiteController extends Controller
 {
-<<<<<<< HEAD
+
     /**
      * Controll redirection of Signup Form
      * 
