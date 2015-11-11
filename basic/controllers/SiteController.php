@@ -47,15 +47,15 @@ class SiteController extends Controller
         return $this->render('signup', ['model' => $model]);
     }
 	
-	public function actionSignupSuccess($model)
-	{
-		return $this->render('signup-success', ['model'=>$model]);
-	}
+    public function actionSignupSuccess($model)
+    {
+	return $this->render('signup-success', ['model'=>$model]);
+    }
 	
-	public function actionSay($message)
-	{
-		return $this->render('say', ['message'=>$message]);
-	}
+    public function actionSay($message)
+    {
+	return $this->render('say', ['message'=>$message]);
+    }
 
     public function behaviors()
     {
