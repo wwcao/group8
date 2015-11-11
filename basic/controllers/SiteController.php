@@ -13,6 +13,7 @@ use app\models\User;
 
 class SiteController extends Controller
 {
+<<<<<<< HEAD
     /**
      * Controll redirection of Signup Form
      * 
@@ -20,7 +21,7 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {	
-	$model = new SignupForm();
+		$model = new SignupForm();
 		
         if ($model->load(Yii::$app->request->post()) && $model->validate()) 
         {
@@ -43,28 +44,17 @@ class SiteController extends Controller
         // fail to add user, $model is changed branch statements
         return $this->render('signup', ['model' => $model]);
     }
-		
-    public function actionSay($model)
-    {
-	return $this->render('say', ['model'=>$model]);
-    }
-/* Sample Code
-	public function actionEntry()
-    {
-        $model = new EntryForm();
+	
+	public function actionSignupSuccess($model)
+	{
+		return $this->render('signup-success', ['model'=>$model]);
+	}
+	
+	public function actionSay($message)
+	{
+		return $this->render('say', ['message'=>$message]);
+	}
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // valid data received in $model
-
-            // do something meaningful here about $model ...
-
-            return $this->render('entry-confirm', ['model' => $model]);
-        } else {
-            // either the page is initially displayed or there is some validation error
-            return $this->render('entry', ['model' => $model]);
-        }
-    }	
-*/ 
     public function behaviors()
     {
         return [
@@ -116,7 +106,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->actionSay('nothing');
         }
         return $this->render('login', [
             'model' => $model,
