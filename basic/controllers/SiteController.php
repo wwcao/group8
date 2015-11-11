@@ -28,15 +28,17 @@ class SiteController extends Controller
             $findUser = User::findByUsername($model->username);
             if($findUser)
             {
+				$model->password = '';
                 $model->userExist('username', []);
             } else {
                 $user = new User;
                 if($user->addUser($model))
                 {
                     // succeed to add User
-                    return $this->render('say', ['model' => $model]);
+                    return $this->render('signup-success', ['model'=>$model]);
                 } else {
                     $model->releaseErrorModel();
+                    return $this->render('signup-success', ['model'=>$model]);
                 }
             }
         }
