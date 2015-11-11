@@ -18,15 +18,20 @@ class SiteController extends Controller
 		$model = new SignupForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-			return $this->render('say', ['model' => $model]);
+			return $this->render('signup-success', ['model' => $model]);
 		} else {
 			return $this->render('signup', ['model' => $model]);
         }
     }
-		
-	public function actionSay($model)
+	
+	public function actionSignupSuccess($model)
 	{
-		return $this->render('say', ['model'=>$model]);
+		return $this->render('signup-success', ['model'=>$model]);
+	}
+	
+	public function actionSay($message)
+	{
+		return $this->render('say', ['message'=>$message]);
 	}
 
 	public function actionEntry()
@@ -97,7 +102,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->actionSay('nothing');
         }
         return $this->render('login', [
             'model' => $model,
