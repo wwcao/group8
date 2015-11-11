@@ -26,6 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
       <p>
       <a href="http://www.simplyrecipes.com">Simply Recipes</a>
       </p>
+      
+      <p>
+		  <a href="http://www.foodnetwork.com">Simply Recipes</a>
+      </p>
+      
 
     
 </div>
