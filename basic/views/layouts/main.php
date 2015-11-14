@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\widgets\Menu;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -42,17 +43,19 @@ AppAsset::register($this);
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ?
               	['label' => 'Login', 'url' => ['/site/login']]:
-				[
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ],
-				
+		['label' => 'Hello, ' . Yii::$app->user->identity->username .'!',
+                    'items' => [
+                        // add more label here!!!
+                        ['label' => 'Profile', 'url' => ['site/index', 'tag' => 'new']],
+                        ['label' => 'Add Group', 'url' => ['site/index', 'tag' => 'new']],
+                        ['label' => 'Logout(' . Yii::$app->user->identity->username .')', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]],
+                    ]		
         ],
     ]);
+            
     NavBar::end();
     ?>
-
+    
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

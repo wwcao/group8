@@ -95,9 +95,13 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $addr = [];
-        //return $this->render('index');
-	return $this->render('index', ['addr'=> $addr,]);
+        //$addr = [];
+        if (\Yii::$app->user->isGuest) {
+            return $this->render('index');
+        } else {
+            return $this->render('say', ['message'=>""]);
+        }
+	//return $this->render('index', ['addr'=> $addr,]);
     }
 
     public function actionLogin()
