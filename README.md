@@ -13,8 +13,15 @@ added link to Signup on index
 
 Add a Signup active mode to store or retrieve user info in db
 
-/* Database Setup required */
-Instruction:
-1. go to LoginDB 
-2. run mysql -uroot -p
-3. enter 'source userDB.sql'
+Instruction by wwcao:
+
+Setup Database:
+1. create database userDB
+2. create tables users, profiles, groups, groupmembers, interest with queries @ LoginDB/userDB.sql
+3. GRANT ALL PRIVILEGES ON userDB. * TO 'csci_proj'@'localhost' identified by 'csci_proj';
+
+system requirement: 
+1. basic/vendor/* by extracting vendor.tar.gz
+2. PHP GD extension
+
+
