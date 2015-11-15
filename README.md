@@ -23,5 +23,6 @@ Setup Database:
 system requirement: 
 1. basic/vendor/* by extracting vendor.tar.gz
 2. PHP GD extension
+3. Setup codecept for test (Instruction in basic/tests)
 
 
