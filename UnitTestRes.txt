@@ -1,0 +1,13 @@
+Codeception PHP Testing Framework v2.0.16
+Powered by PHPUnit 4.7.7 by Sebastian Bergmann and contributors.
+
+Unit Tests (4) -----------------------------------------------------------------
+Test contact (tests\codeception\unit\models\ContactFormTest::testContact) Ok.. 
+Test login (tests\codeception\unit\models\LoginFormTest::testLoginNoUser) Ok.. 
+Trying to test login wrong pas (tests\codeception\unit\models\LoginFormTest::tesTes (tests\codeception\unit\models\LoginFormTest::testLoginWrongPassword) Ok
+Test logi (tests\codeception\unit\models\LoginFormTest::testLoginCorrect) Ok.. 
+--------------------------------------------------------------------------------
+
+
+Time: 794 ms, Memory: 34.50Mb
+

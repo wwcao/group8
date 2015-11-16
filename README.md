@@ -25,4 +25,7 @@ system requirement:
 2. PHP GD extension
 3. Setup codecept for test (Instruction in basic/tests)
 
+Run Test:
+1. codecept run @ basic/tests
+
 
