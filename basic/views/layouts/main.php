@@ -41,6 +41,7 @@ AppAsset::register($this);
             ['label' => 'Recipes', 'url' => ['/site/recipes']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
+	['label'=> 'Dog', 'url' => ['/site/dog']],
             Yii::$app->user->isGuest ?
               	['label' => 'Login', 'url' => ['/site/login']]:
 		['label' => 'Hello, ' . Yii::$app->user->identity->username .'!',

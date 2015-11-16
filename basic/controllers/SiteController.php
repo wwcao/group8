@@ -147,4 +147,11 @@ class SiteController extends Controller
     {
         return $this->render('recipes');
     }
+public function actionDog()
+  {
+        return $this->render('recipes');
+    }
+
 }
+
+
