@@ -58,7 +58,7 @@ class SiteController extends Controller
         $id = \Yii::$app->user->getId();
         $user = User::findOne($id);
         
-        $profile = new ProfileForm();
+        //$profile = new ProfileForm();
         $profile = ProfileForm::findOne($user->username);
         if ($profile->load(Yii::$app->request->post()) && $profile->validate()) 
         {
@@ -113,13 +113,11 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        //$addr = [];
         if (\Yii::$app->user->isGuest) {
             return $this->render('index');
         } else {
             return $this->render('say', ['message'=>""]);
         }
-	//return $this->render('index', ['addr'=> $addr,]);
     }
 
     public function actionLogin()
@@ -161,10 +159,12 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
     public function actionRecipes()
     {
         return $this->render('recipes');
     }
+    
     public function actionDog()
     {
         $id = \Yii::$app->user->getId();

@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE TABLE IF NOT EXISTS `profiles` (
 	`username` varchar(50) NOT NULL,
 	`auth_key` varchar(100) NOT NULL, 
-	`lastname` varchar(20) NOT NULL,
-	`firstname` varchar(20) NOT NULL,
+	`lastname` varchar(20),
+	`firstname` varchar(20),
 	`email` varchar(50),
 	`phone_num`	varchar(10),
 	`bod` DATE,
