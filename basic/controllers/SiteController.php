@@ -10,6 +10,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SignupForm;
 use app\models\User;
+use app\models\ProfileForm;
 
 class SiteController extends Controller
 {
@@ -21,14 +22,14 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {	
-		$model = new SignupForm();
+	$model = new SignupForm();
 		
         if ($model->load(Yii::$app->request->post()) && $model->validate()) 
         {
             $findUser = User::findByUsername($model->username);
             if($findUser)
             {
-				$model->password = '';
+                $model->password = '';
                 $model->userExist('username', []);
             } else {
                 $user = new User;
@@ -50,6 +51,23 @@ class SiteController extends Controller
     public function actionSignupSuccess($model)
     {
 	return $this->render('signup-success', ['model'=>$model]);
+    }
+    
+    public function actionProfile()
+    {
+        $id = \Yii::$app->user->getId();
+        $user = User::findOne($id);
+        
+        $profile = new ProfileForm();
+        $profile = ProfileForm::findOne($user->username);
+        if ($profile->load(Yii::$app->request->post()) && $profile->validate()) 
+        {
+            if($profile->save())
+            {
+                return $this->render('say', ['message'=>'You submited your profile successfully!']);
+            }
+        }
+        return $this->render('profile', ['model'=>$profile]);
     }
 	
     public function actionSay($message)
@@ -112,7 +130,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->actionSay('nothing');
+            return $this->actionSay('You have logged in successfully!');
         }
         return $this->render('login', [
             'model' => $model,
@@ -147,9 +165,17 @@ class SiteController extends Controller
     {
         return $this->render('recipes');
     }
-public function actionDog()
-  {
-        return $this->render('recipes');
+    public function actionDog()
+    {
+        $id = \Yii::$app->user->getId();
+        if($id != '')
+        {
+            $user = User::findOne($id);
+            $message = $user->username . ' ' .$id;
+            $message = $message . ' ' . $user->auth_key;
+            return $this->actionSay($message);
+        }
+        return $this->actionSay($id);
     }
 
 }

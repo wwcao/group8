@@ -3,6 +3,8 @@ use yii\helpers\Html;
 ?>
 <?php
 $this->title = 'Login Successfully';
+if($message==""){
+   $message = "Param \$messgae is Empty!";
+}
+echo $message;
 ?>
-<h2> You have logged in successfully! </h2>
-
