@@ -11,6 +11,7 @@ use app\models\ContactForm;
 use app\models\SignupForm;
 use app\models\User;
 use app\models\ProfileForm;
+use app\models\Groups;
 
 class SiteController extends Controller
 {
@@ -52,6 +53,17 @@ class SiteController extends Controller
     {
 	return $this->render('signup-success', ['model'=>$model]);
     }
+    public function actionCreateGroup()
+    {
+		$group = new Group();
+		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+			
+		}
+			
+		return $this->render('creategroup', ['model'=>$group]);
+		
+		
+	}
     
     public function actionProfile()
     {
