@@ -30,12 +30,12 @@ class ProfileForm extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'email', 'lastname', 'firstname', 'phone_num'], 'required'],
+            [['username', 'email', 'lastname', 'firstname', 'phone_num'], 'required'],
             [['username', 'email'], 'string', 'max' => 50],
             ['email', 'email'],
-            //[['auth_key'], 'string', 'max' => 100],
             [['lastname', 'firstname'], 'string', 'max' => 20],
-            [['phone_num'], 'string', 'max' => 10]
+            [['phone_num'], 'string', 'max' => 10],
+            ['primaryKey','safe'],
         ];
     }
 
@@ -46,11 +46,36 @@ class ProfileForm extends \yii\db\ActiveRecord
     {
         return [
             'username' => 'Username',
-            'auth_key' => 'Auth Key',
             'lastname' => 'Lastname',
             'firstname' => 'Firstname',
             'email' => 'Email',
             'phone_num' => 'Phone Num',
         ];
+    }
+    
+    public function initialize()
+    {
+        $this->username = '';
+        $this->lastname = '';
+        $this->email = '';
+        $this->phone_num = '';
+    }
+    
+    public function test_initialize()
+    {
+        $this->username = 'admin';
+        $this->lastname = '';
+        $this->email = '';
+        $this->phone_num = '';
+    }
+    
+    public function addUserProfile($user, $signupfrom)
+    {
+        $this->initialize();
+        $this->username = $user->username;
+        $this->email = $signupfrom->email;
+        $this->lastname = $signupfrom->l_name;
+        $this->firstname = $signupfrom->f_name;
+        return $this->save(false);
     }
 }

@@ -11,7 +11,6 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
         <?= $form->field($model, 'username')->textInput(['readonly' => true]) ?>
-        <!--//<?= $form->field($model, 'auth_key') ?> -->
         <?= $form->field($model, 'email') ?>
         <?= $form->field($model, 'lastname') ?>
         <?= $form->field($model, 'firstname') ?>

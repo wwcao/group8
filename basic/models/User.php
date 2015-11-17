@@ -61,9 +61,13 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         $this->password = $model->password;
         $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
         $this->access_token = Yii::$app->getSecurity()->generateRandomString();
-        return $this->save();
+        $profile = new ProfileForm;
+        if($profile->addUserProfile($this, $model))
+        {               
+            return $this->save();
+        }
+        return false;
     }
-    
     /**
      * @inheritdoc
      */

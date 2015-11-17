@@ -1,19 +1,5 @@
 
-
-
-
-
-
-
-added Signup page by weipeng cao
-
-Unzip basic/vender.zip if you have no vender in basic
-
-added link to Signup on index
-
-Add a Signup active mode to store or retrieve user info in db
-
-Instruction by wwcao:
+Instruction:
 
 Setup Database:
 1. create database userDB (Updated Table Description)
@@ -23,7 +9,7 @@ Setup Database:
 system requirement: 
 1. basic/vendor/* by extracting vendor.tar.gz
 2. PHP GD extension
-3. Setup codecept for test (Instruction in basic/tests)
+3. Setup codecept for test (Instruction in basic/tests) OPTIONAL!
 
 Run Test:
 1. codecept run @ basic/tests

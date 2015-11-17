@@ -27,21 +27,21 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) 
         {
             $findUser = User::findByUsername($model->username);
-            if($findUser)
+            if(!$findUser)
             {
-                $model->password = '';
-                $model->userExist('username', []);
-            } else {
                 $user = new User;
                 if($user->addUser($model))
                 {
                     // succeed to add User
                     return $this->render('signup-success', ['model'=>$model]);
-                } else {
-                    $model->releaseErrorModel();
-                    return $this->render('signup-success', ['model'=>$model]);
                 }
+                
+                $model->releaseErrorModel();
+                return $this->render('signup-success', ['model'=>$model]);
             }
+            $model->password = '';
+            $model->userExist('username', []);
+
         }
         
         // fail to add user, $model is changed branch statements
@@ -172,7 +172,6 @@ class SiteController extends Controller
         {
             $user = User::findOne($id);
             $message = $user->username . ' ' .$id;
-            $message = $message . ' ' . $user->auth_key;
             return $this->actionSay($message);
         }
         return $this->actionSay($id);
