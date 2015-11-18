@@ -1,4 +1,14 @@
 
+CREATE DATABASE IF NOT EXISTS `userDB`;
+USE `userDB`;
+
+DROP TABLE IF EXISTS `groupmembers`;
+DROP TABLE IF EXISTS `groups`;
+DROP TABLE IF EXISTS `interest`;
+DROP TABLE IF EXISTS `profiles`;
+DROP TABLE IF EXISTS `users`;
+
+
 CREATE TABLE IF NOT EXISTS `users` (
   `id` 							int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` 				varchar(50) NOT NULL,
@@ -26,15 +36,14 @@ CREATE TABLE IF NOT EXISTS `groups` (
 	PRIMARY KEY (`groupname`,`l_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 CREATE TABLE IF NOT EXISTS `groupmembers` (
 	`groupname`	varchar(50),
 	`l_user` varchar(50),
 	`m_user` varchar(50) NOT NULL,
 	PRIMARY KEY (`groupname`,`l_user`, `m_user`),
 	FOREIGN KEY (`groupname`,`l_user`) REFERENCES `groups`(`groupname`,`l_user`)
+	on delete cascade
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 CREATE TABLE IF NOT EXISTS `interest` (
 	`username` varchar(50) NOT NULL,
