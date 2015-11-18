@@ -53,17 +53,17 @@ class SiteController extends Controller
     {
 	return $this->render('signup-success', ['model'=>$model]);
     }
-    public function actionCreateGroup()
-    {
-		$group = new Group();
-		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-			
-		}
-			
-		return $this->render('creategroup', ['model'=>$group]);
-		
-		
-	}
+    
+    public function actionCreategroup()
+    {       
+        $group = new Groups();
+	if ($group->load(Yii::$app->request->post()) && $group->validate()) 
+        {
+	
+            
+        }		
+	return $this->render('creategroup', ['model'=>$group]);	
+    }
     
     public function actionProfile()
     {

@@ -44,7 +44,7 @@ class Groups extends \yii\db\ActiveRecord
     {
         return [
             'groupname' => 'Groupname',
-            'l_user' => 'L User',
+            'l_user' => 'Leader',
             'descripton' => 'Descripton',
             'create_date' => 'Create Date',
             'status' => 'Status',
