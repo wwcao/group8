@@ -55,14 +55,18 @@ class SiteController extends Controller
     }
     
     public function actionCreategroup()
-    {       
+    {
+        $user = $this->getUser();
+        
         $group = new Groups();
+
 	if ($group->load(Yii::$app->request->post()) && $group->validate()) 
         {
-	
-            
+	   
         }		
-	return $this->render('creategroup', ['model'=>$group]);	
+	return $this->render('creategroup', ['model'=>$group]);
+        $group->Num_Group($user->username);
+        
     }
     
     public function actionProfile()
@@ -80,6 +84,12 @@ class SiteController extends Controller
             }
         }
         return $this->render('profile', ['model'=>$profile]);
+    }
+    
+    private function getUser()
+    {
+        $id = \Yii::$app->user->getId();
+        return User::findOne($id);
     }
 	
     public function actionSay($message)

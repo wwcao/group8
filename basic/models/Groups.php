@@ -50,4 +50,18 @@ class Groups extends \yii\db\ActiveRecord
             'status' => 'Status',
         ];
     }
+    
+    /**
+     * @param $username
+     * 
+     * @return number of goups that current user created
+    */
+    public function Num_Group($username)
+    {
+        return 0;
+    }
+    
+    public function isExist() {
+        
+    }
 }

@@ -12,10 +12,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
         <?= $form->field($model, 'groupname') ?>
-        <?= $form->field($model, 'l_user') ?>
-        <?= $form->field($model, 'descripton') ?>
-        <?= $form->field($model, 'create_date') ?>
-        <?= $form->field($model, 'status') ?>
+        <?= $form->field($model, 'descripton')->textarea(['maxlength' => 300, 'rows' => 6, 'cols' => 50])?>
     
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

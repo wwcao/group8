@@ -47,7 +47,8 @@ AppAsset::register($this);
 		['label' => 'Hello, ' . Yii::$app->user->identity->username .'!',
                     'items' => [
                         // add more label here!!!
-                        ['label' => 'Profile', 'url' => ['site/profile', 'tag' => 'new']],
+                        ['label' => 'Profile', 'url' => ['site/profile', 'tag' => 'profile']],
+                        ['label' => 'Create Group', 'url' => ['site/creategroup', 'tag' => 'creategroup']],
                         ['label' => 'Add Group', 'url' => ['site/index', 'tag' => 'new']],
                         ['label' => 'Logout(' . Yii::$app->user->identity->username .')', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]],
                     ]		
