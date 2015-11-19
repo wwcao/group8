@@ -7,6 +7,7 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Profiles */
 /* @var $form ActiveForm */
 ?>
+
 <div class="site-profile">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -22,3 +23,4 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div><!-- site-profile -->
+

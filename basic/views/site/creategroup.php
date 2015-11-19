@@ -7,8 +7,21 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Groups */
 /* @var $form ActiveForm */
 ?>
-<div class="creategroup">
+<div class="const">
+<label>Creator:</label><br><?= Html::encode($model->l_user) ?> <br><br>
+<label>Date:</label><br><?= Html::encode($model->create_date) ?> <br><br>
+<label>Status:</label><br>
 
+<?php
+    $status = 'Open';
+    if($model->status == 'c')
+        $status = 'Closed';
+    echo $status;
+?>
+</div>
+<br><br>
+<div class="creategroup">
+    
     <?php $form = ActiveForm::begin(); ?>
 
         <?= $form->field($model, 'groupname') ?>

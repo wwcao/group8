@@ -57,16 +57,18 @@ class SiteController extends Controller
     public function actionCreategroup()
     {
         $user = $this->getUser();
-        
         $group = new Groups();
-
+        
+        
 	if ($group->load(Yii::$app->request->post()) && $group->validate()) 
         {
-	   
-        }		
+           
+	   return $this->render('index');
+        }
+        $group->l_user = $user->username;
+        $group->create_date = date("Y-m-d");
+        $group->status = 'o';
 	return $this->render('creategroup', ['model'=>$group]);
-        $group->Num_Group($user->username);
-        
     }
     
     public function actionProfile()

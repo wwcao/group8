@@ -89,3 +89,17 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+.const {
+    color: gray;
+    background: white;
+    border-left: 3px solid #eed3d7;
+    padding-left: 10px;
+    margin-left: 10%
+}
+
+.site-profile {
+    
+    margin-left: 15%;
+    margin-right: 15%;
+}

@@ -4,9 +4,6 @@ USE `userDB`;
 
 DROP TABLE IF EXISTS `groupmembers`;
 DROP TABLE IF EXISTS `groups`;
-DROP TABLE IF EXISTS `interest`;
-DROP TABLE IF EXISTS `profiles`;
-DROP TABLE IF EXISTS `users`;
 
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -32,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 	`l_user` varchar(50) NOT NULL,
 	`descripton` BLOB NOT NULL,
 	`create_date`	DATE,
-	`status` CHAR check (`status` = 'close' or `status`='open'),
+	`status` varchar(1) check (`status` = 'c' or `status`='o'),
 	PRIMARY KEY (`groupname`,`l_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -12,6 +12,8 @@ use Yii;
  * @property resource $descripton
  * @property string $create_date
  * @property string $status
+ *
+ * @property Groupmembers[] $groupmembers
  */
 class Groups extends \yii\db\ActiveRecord
 {
@@ -44,24 +46,27 @@ class Groups extends \yii\db\ActiveRecord
     {
         return [
             'groupname' => 'Groupname',
-            'l_user' => 'Leader',
+            'l_user' => 'L User',
             'descripton' => 'Descripton',
             'create_date' => 'Create Date',
             'status' => 'Status',
         ];
     }
-    
+
     /**
-     * @param $username
-     * 
-     * @return number of goups that current user created
-    */
-    public function Num_Group($username)
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGroupmembers()
     {
-        return 0;
+        return $this->hasMany(Groupmembers::className(), ['groupname' => 'groupname', 'l_user' => 'l_user']);
     }
-    
-    public function isExist() {
-        
+
+    /**
+     * @inheritdoc
+     * @return GroupsQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new GroupsQuery(get_called_class());
     }
 }
