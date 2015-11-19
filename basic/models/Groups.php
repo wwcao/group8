@@ -69,4 +69,15 @@ class Groups extends \yii\db\ActiveRecord
     {
         return new GroupsQuery(get_called_class());
     }
+    
+    public function groupExist(){
+        $p = Groups::findOne($this->groupname);
+        $p->findOne($this->l_user);
+        if($p!=null)
+        {
+            return true;
+        }
+        return false;
+    }
+    
 }

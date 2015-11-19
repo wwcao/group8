@@ -58,16 +58,24 @@ class SiteController extends Controller
     {
         $user = $this->getUser();
         $group = new Groups();
-        
-        
-	if ($group->load(Yii::$app->request->post()) && $group->validate()) 
-        {
-           
-	   return $this->render('index');
-        }
         $group->l_user = $user->username;
         $group->create_date = date("Y-m-d");
         $group->status = 'o';
+	if ($group->load(Yii::$app->request->post()) && $group->validate()) 
+        {
+            
+            if(!$group->groupExist())
+            {
+                if($group->save())
+                {
+                    return $this->render('say', ['message'=>'Group is Created']);
+                } else {
+                    return $this->render('say', ['message'=>'GroupErr']);
+                }
+            } else {
+                return $this->render('say', ['message'=>'You created ' . $group->groupname . '!']);
+            }
+        }
 	return $this->render('creategroup', ['model'=>$group]);
     }
     
