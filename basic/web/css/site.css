@@ -103,3 +103,17 @@ a.desc:after {
     margin-left: 15%;
     margin-right: 15%;
 }
+
+.groups {
+    list-style-type: none;
+}
+
+.group {
+    border-top-color: gray;
+    padding: 5px 10px 5px 10px;
+    margin: 15px 20% 10px 20%;
+    box-shadow: 10px 10px 5px #888888;
+    align-items: center;
+    text-align:center;
+    border:1px solid gray;
+}

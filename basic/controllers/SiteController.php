@@ -6,6 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use yii\data\Pagination;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SignupForm;
@@ -79,6 +80,27 @@ class SiteController extends Controller
 	return $this->render('creategroup', ['model'=>$group]);
     }
     
+    public function actionViewGroup()
+    {
+        $query = Groups::find()
+                ->where(['l_user' => $this->getUser()->username]);
+        
+        $pagination_mygroups = new Pagination([
+            'defaultPageSize' => 5,
+            'totalCount' => $query->count(),
+        ]);
+
+        $myGroups = $query->orderBy('groupname')
+            ->offset($pagination_mygroups->offset)
+            ->limit($pagination_mygroups->limit)
+            ->all();
+
+        return $this->render('view-group', [
+            'myGroups' => $myGroups,
+            'pagination' => $pagination_mygroups,
+        ]);
+    }
+    
     public function actionProfile()
     {
         $id = \Yii::$app->user->getId();
@@ -148,7 +170,7 @@ class SiteController extends Controller
         if (\Yii::$app->user->isGuest) {
             return $this->render('index');
         } else {
-            return $this->render('say', ['message'=>""]);
+            return $this->actionViewGroup();
         }
     }
 

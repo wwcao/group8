@@ -71,9 +71,12 @@ class Groups extends \yii\db\ActiveRecord
     }
     
     public function groupExist(){
-        $p = Groups::findOne($this->groupname);
-        $p->findOne($this->l_user);
-        if($p!=null)
+        $rows = (new \yii\db\Query())
+            ->select(['l_user'])
+            ->from($this->tableName())
+            ->where(['groupname' => $this->groupname, 'l_user' => $this->l_user]);
+        
+        if($rows->count()>=1)
         {
             return true;
         }
