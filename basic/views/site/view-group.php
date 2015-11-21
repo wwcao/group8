@@ -9,12 +9,22 @@ use yii\widgets\LinkPager;
     <ul class="groups">
     <?php foreach ($myGroups as $group): ?>
         <li><div class="group">
-                <div style="text-align:center;">
+                <div class="groupinfo">
                     <h4><?= Html::encode("{$group->groupname}") ?></h4>
                     <p>Created on <?= Html::encode("{$group->create_date}") ?></p>
+                    <p style="text-align:left;"><?php 
+                        $content = $group->descripton;
+                        if(strlen($content) > 150)
+                        {
+                            $content = substr($group->descripton, 1, 80) . '...';
+                        }
+                        ?>
+                        <?= Html::encode("{$content}") ?>
+                    </p>
                 </div>
-                <div style="text-align: center;">
+                <div class="actionOnGroup">
                     <?= Html::submitButton('Delete', ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton('Close', ['class' => 'btn btn-primary']) ?>
                 </div>
             </div>
         </li>
@@ -30,8 +40,6 @@ use yii\widgets\LinkPager;
     </div>
     <?php }?>
 
-
-
 <?php if(count($joinedGroups)>0) { ?>
 <div>
     
@@ -44,7 +52,7 @@ use yii\widgets\LinkPager;
                     <p>Created on <?= Html::encode("{$group->create_date}") ?></p>
                 </div>
                 <div style="text-align: center;">
-                    <?= Html::submitButton('Delete', ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton('Leave', ['class' => 'btn btn-primary']) ?>
                 </div>
             </div>
         </li>

@@ -100,7 +100,7 @@ class SiteController extends Controller
                 ->where(['l_user' => $this->getUser()->username]);
         
         $pagination_mygroups = new Pagination([
-            'defaultPageSize' => 4,
+            'defaultPageSize' => 3,
             'totalCount' => $queryMyGroup->count(),
         ]);
 
@@ -118,7 +118,7 @@ class SiteController extends Controller
                 ->select('*');
                 
         $pagination_joinedgroup = new Pagination([
-            'defaultPageSize' => 5,
+            'defaultPageSize' => 3,
             'totalCount' => $queryJoinedGroup->count(),
         ]);
         

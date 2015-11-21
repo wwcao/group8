@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `profiles` (
 CREATE TABLE IF NOT EXISTS `groups` (
 	`groupname`	varchar(50) NOT NULL,
 	`l_user` varchar(50) NOT NULL,
-	`descripton` BLOB NOT NULL,
+	`descripton` text NOT NULL,
 	`create_date`	DATE,
 	`status` varchar(1) check (`status` = 'c' or `status`='o'),
 	PRIMARY KEY (`groupname`,`l_user`)
