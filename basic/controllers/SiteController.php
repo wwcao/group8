@@ -13,6 +13,7 @@ use app\models\SignupForm;
 use app\models\User;
 use app\models\ProfileForm;
 use app\models\Groups;
+use app\models\Groupmembers;
 
 class SiteController extends Controller
 {
@@ -82,23 +83,50 @@ class SiteController extends Controller
     
     public function actionViewGroup()
     {
-        $query = Groups::find()
+        $myGroups = $this->getMyGroups();
+        $joinedGroups = $this->getJoinedGroups();
+
+        return $this->render('view-group', [
+            'myGroups' => $myGroups['myGroups'],
+            'paginationMyGroup' => $myGroups['pagenation'],
+            'joinedGroups' => $joinedGroups['joinedGroups'],
+            'paginationJoinedGroup' => $joinedGroups['pagenation'],
+        ]);
+    }
+    
+    private function getMyGroups()
+    {
+        $queryMyGroup = Groups::find()
                 ->where(['l_user' => $this->getUser()->username]);
         
         $pagination_mygroups = new Pagination([
-            'defaultPageSize' => 5,
-            'totalCount' => $query->count(),
+            'defaultPageSize' => 4,
+            'totalCount' => $queryMyGroup->count(),
         ]);
 
-        $myGroups = $query->orderBy('groupname')
+        $myGroups = $queryMyGroup->orderBy('create_date')
             ->offset($pagination_mygroups->offset)
             ->limit($pagination_mygroups->limit)
             ->all();
-
-        return $this->render('view-group', [
-            'myGroups' => $myGroups,
-            'pagination' => $pagination_mygroups,
+        return ['myGroups'=>$myGroups, 'pagenation'=>$pagination_mygroups];
+    }
+    
+    private function getJoinedGroups()
+    {
+        $NJ = 'NATURE JOIN';
+        $queryJoinedGroup = Groups::find()->join($NJ, ['groupmembers'])
+                ->select('*');
+                
+        $pagination_joinedgroup = new Pagination([
+            'defaultPageSize' => 5,
+            'totalCount' => $queryJoinedGroup->count(),
         ]);
+        
+        $joinedGroups = $queryJoinedGroup
+                ->offset($pagination_joinedgroup->offset)
+                ->limit($pagination_joinedgroup->limit)
+                ->all();
+        return ['joinedGroups'=>$joinedGroups, 'pagenation'=>$pagination_joinedgroup];
     }
     
     public function actionProfile()

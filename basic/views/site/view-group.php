@@ -5,7 +5,7 @@ use yii\widgets\LinkPager;
 <?php if(count($myGroups)>0) { ?>
 <div>
     
-    <h1>My Groups</h1>
+    <h2>My Groups</h2>
     <ul class="groups">
     <?php foreach ($myGroups as $group): ?>
         <li><div class="group">
@@ -21,17 +21,23 @@ use yii\widgets\LinkPager;
     <?php endforeach; ?>
     </ul>
 
-    <?= LinkPager::widget(['pagination' => $pagination]) ?>
+    <?= LinkPager::widget(['pagination' => $paginationMyGroup]) ?>
 </div>
 
-<?php }?>
+<?php } else {?>
+    <div class="no-group">
+        <h2>No Group is created!</h2>
+    </div>
+    <?php }?>
 
-<?php if(count($myGroups)>0) { ?>
+
+
+<?php if(count($joinedGroups)>0) { ?>
 <div>
     
-    <h1>Joined Groups</h1>
+    <h3>Joined Groups</h3>
     <ul class="groups">
-    <?php foreach ($myGroups as $group): ?>
+    <?php foreach ($joinedGroups as $group): ?>
         <li><div class="group">
                 <div style="text-align:center;">
                     <h4><?= Html::encode("{$group->groupname}") ?></h4>
@@ -43,9 +49,8 @@ use yii\widgets\LinkPager;
             </div>
         </li>
     <?php endforeach; ?>
-    </ul>
 
-    <?= LinkPager::widget(['pagination' => $pagination]) ?>
+    <?= LinkPager::widget(['pagination' => $paginationJoinedGroup]) ?>
 </div>
 
 <?php }?>

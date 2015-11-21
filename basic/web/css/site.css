@@ -106,15 +106,22 @@ a.desc:after {
 
 .groups {
     list-style-type: none;
+    text-align: center;
 }
 
 .group {
-    
-    margin-left: 20%;
-    margin-right: 20%;
-    
-    /*align-items: center;
-    text-align:center;*/
-    border:1px solid gray;
-    box-shadow: 10px 10px 5px #888888;
+    border: 1px dotted black;
+    width: 30%;
+    display: inline-table;
+    height:200px;
+}
+
+.no-group {
+    text-align: center;
+    margin-top: 200px;
+    text-decoration: blink;
+}
+
+ul li {
+    display: inline;
 }
