@@ -98,6 +98,11 @@ a.desc:after {
     margin-left: 10%
 }
 
+.groupsls {
+    list-style-type: none;
+    text-align: center;
+}
+
 .site-profile {
     
     margin-left: 15%;
@@ -105,26 +110,45 @@ a.desc:after {
 }
 
 .groups {
-    list-style-type: none;
     text-align: center;
 }
 
-.group {
+.mygroup {
+    z-index: 0;
     margin-top: 10px;
     margin-right: 10px;
-    border: 1px solid gray;
-    width: 30%;
+    border: 1px solid lightgray;
+    width: 40%;
     display: inline-table;
     height:200px;
+    box-shadow: 2px 2px 5px #888888;
+}
+
+.mygroup:hover {
+    box-shadow: 5px 8px 5px #888888;
+}
+
+.joinedgroup {
+    margin-right: 10px;
+    border: 1px solid lightgray;
+    width: 40%;
+    display: inline-table;
+    height:130px;
+    box-shadow: 2px 2px 5px #888888;
+}
+
+.joinedgroup:hover {
     box-shadow: 5px 5px 5px #888888;
 }
 
 .groupinfo {
+    overflow: hidden;
     height: 150px;
+    padding: 5px 5px 10px 5px;
 }
 
 .actionOnGroup {
-    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .no-group {

@@ -44,7 +44,6 @@ class SiteController extends Controller
             }
             $model->password = '';
             $model->userExist('username', []);
-
         }
         
         // fail to add user, $model is changed branch statements
@@ -100,8 +99,9 @@ class SiteController extends Controller
                 ->where(['l_user' => $this->getUser()->username]);
         
         $pagination_mygroups = new Pagination([
-            'defaultPageSize' => 3,
+            'defaultPageSize' => 4,
             'totalCount' => $queryMyGroup->count(),
+            'pageParam' => 'my-page',
         ]);
 
         $myGroups = $queryMyGroup->orderBy('create_date')
@@ -113,13 +113,16 @@ class SiteController extends Controller
     
     private function getJoinedGroups()
     {
-        $NJ = 'NATURE JOIN';
+        $NJ = 'NATURAL JOIN';
         $queryJoinedGroup = Groups::find()->join($NJ, ['groupmembers'])
+                ->where(['m_user' => $this->getUser()->username])
                 ->select('*');
+
                 
         $pagination_joinedgroup = new Pagination([
-            'defaultPageSize' => 3,
+            'defaultPageSize' => 2,
             'totalCount' => $queryJoinedGroup->count(),
+            'pageParam' => 'joined-page',
         ]);
         
         $joinedGroups = $queryJoinedGroup
