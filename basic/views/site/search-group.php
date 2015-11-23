@@ -9,14 +9,15 @@ if($keywords == "")
 }
 ?>
 
-<?php $form = ActiveForm::begin();?>
-    <?= Html::submitButton('Searc', ['class' => 'btn btn-primary', 'name'=>'submit']) ?>
+<?php $form = ActiveForm::begin(); ?>
+    <?= $form->field($keywords, 'keywords')->input('text', ['style'=>'width: 60%'])->hint("use seperator ','") ?>
+    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
 <?php ActiveForm::end(); ?>
 
 <?php if($Groups!=Null&&count($Groups)>0) { ?>
 <div>
     <h4 style="margin-left: 5%;">Match Group</h4>
-    <p style="margin-left: 6%;">Keywords: <?= Html::encode($keywords); ?></p>
+    <p style="margin-left: 6%;">Keywords: <?= Html::encode($keywords->keywords); ?></p>
     <ul class="groupsls">
     <?php foreach ($Groups as $group): ?>
         <li><div class="mygroup">
@@ -33,9 +34,6 @@ if($keywords == "")
                         </span>
                     </p>
                 </div>
-                <div class="actionOnGroup">
-                    <?= Html::submitButton('Join', ['class' => 'btn btn-primary']) ?>
-                </div>
             </div>
         </li>
     <?php endforeach; ?>
@@ -46,8 +44,9 @@ if($keywords == "")
 </div>
 
 <?php } else {?>
-    
-    <div class="no-group">
-        <h2>No Group is found!</h2>
-    </div>
+    <?php if($keywords->keywords!="") {?>
+        <div class="no-group">
+            <h2>No Group is found!</h2>
+        </div>
+    <?php }?>
 <?php }?>

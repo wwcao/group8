@@ -14,6 +14,7 @@ use app\models\User;
 use app\models\ProfileForm;
 use app\models\Groups;
 use app\models\Groupmembers;
+use app\models\SearchKW;
 
 class SiteController extends Controller
 {
@@ -158,16 +159,19 @@ class SiteController extends Controller
     
     public function actionSearchGroup()
     {
-        $keywords = "";
-        if(isset($_POST['search']))
+        $keywords = new SearchKW();
+        if ($keywords->load(Yii::$app->request->post()) && $keywords->validate())
         {
-            $keywords=$_POST['keywords'];
-        }
-        $foundGroups = $this->searchGroups($this->str2array($keywords));
-        
-        return $this->render('search-group', [
+            $foundGroups = $this->searchGroups($this->str2array($keywords->keywords));
+            return $this->render('search-group', [
             'Groups' => $foundGroups['Groups'],
             'Pagination' => $foundGroups['pagenation'],
+            'keywords' => $keywords
+            ]);
+        }
+        return $this->render('search-group', [
+            'Groups' => [],
+            'Pagination' => [],
             'keywords' => $keywords
         ]);
     }
@@ -193,13 +197,14 @@ class SiteController extends Controller
     private function searchGroups($keywords)
     {
         $NJ = 'NATURAL JOIN';
+        
+        //TODO: Check out this functions correctly
         $username = $this->getUser()->username;
         $subquery = Groupmembers::find()
                 ->where(['not', ['l_user' => $username]])
-                ->where(['not', ['m_user' => $username]]);
-        $queryGroups = Groups::find()->join($NJ, ['groupmembers']);
-
-        $queryGroups->where(['or like', 'descripton', $keywords]);
+                ->andwhere(['not', ['m_user' => $username]]);
+        $queryGroups = Groups::find()->join($NJ, [$subquery])
+                ->where(['or like', 'descripton', $keywords]);
         $queryGroups->select('*');
         $pagination = new Pagination([
             'defaultPageSize' => 6,
