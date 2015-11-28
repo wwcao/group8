@@ -41,7 +41,7 @@ AppAsset::register($this);
             ['label' => 'Recipes', 'url' => ['/site/recipes']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label'=> 'Dog', 'url' => ['/site/dog']],
+            //['label'=> 'Dog', 'url' => ['/site/dog']],
             Yii::$app->user->isGuest ?
               	['label' => 'Login', 'url' => ['/site/login']]:
 		['label' => 'Hello, ' . Yii::$app->user->identity->username .'!',
@@ -49,7 +49,7 @@ AppAsset::register($this);
                         // add more label here!!!
                         ['label' => 'Profile', 'url' => ['site/profile', 'tag' => 'profile']],
                         ['label' => 'Create Group', 'url' => ['site/creategroup', 'tag' => 'creategroup']],
-                        ['label' => 'Add Group', 'url' => ['site/index', 'tag' => 'new']],
+                        ['label' => 'Search Group', 'url' => ['site/search-group', 'tag' => 'searchgroup']],
                         ['label' => 'Logout(' . Yii::$app->user->identity->username .')', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]],
                     ]		
         ],

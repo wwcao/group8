@@ -14,6 +14,7 @@ use app\models\User;
 use app\models\ProfileForm;
 use app\models\Groups;
 use app\models\Groupmembers;
+use app\models\SearchKW;
 
 class SiteController extends Controller
 {
@@ -44,7 +45,6 @@ class SiteController extends Controller
             }
             $model->password = '';
             $model->userExist('username', []);
-
         }
         
         // fail to add user, $model is changed branch statements
@@ -56,6 +56,7 @@ class SiteController extends Controller
 	return $this->render('signup-success', ['model'=>$model]);
     }
     
+    
     public function actionCreategroup()
     {
         $user = $this->getUser();
@@ -65,7 +66,6 @@ class SiteController extends Controller
         $group->status = 'o';
 	if ($group->load(Yii::$app->request->post()) && $group->validate()) 
         {
-            
             if(!$group->groupExist())
             {
                 if($group->save())
@@ -81,8 +81,19 @@ class SiteController extends Controller
 	return $this->render('creategroup', ['model'=>$group]);
     }
     
+    
+    // Start View Group
+    /*
+     * Action: Help function to search database for the created groups
+     * that the current logged-in user
+     * 
+     * @return render view-group.php
+     */
     public function actionViewGroup()
     {
+        
+        // add post check
+        
         $myGroups = $this->getMyGroups();
         $joinedGroups = $this->getJoinedGroups();
 
@@ -94,14 +105,21 @@ class SiteController extends Controller
         ]);
     }
     
+    /*
+     * Help function to search database for the created groups
+     * that the current logged-in user
+     * 
+     * @return ['myGroups'=>ActiveRecord, 'pagenation'=>Pagination]
+     */
     private function getMyGroups()
     {
         $queryMyGroup = Groups::find()
                 ->where(['l_user' => $this->getUser()->username]);
         
         $pagination_mygroups = new Pagination([
-            'defaultPageSize' => 3,
+            'defaultPageSize' => 4,
             'totalCount' => $queryMyGroup->count(),
+            'pageParam' => 'my-page',
         ]);
 
         $myGroups = $queryMyGroup->orderBy('create_date')
@@ -111,15 +129,24 @@ class SiteController extends Controller
         return ['myGroups'=>$myGroups, 'pagenation'=>$pagination_mygroups];
     }
     
+    /*
+     * Help function to search database for the groups
+     * that the current logged-in user joined
+     * 
+     * @return ['myGroups'=>ActiveRecord, 'pagenation'=>Pagination]
+     */
     private function getJoinedGroups()
     {
-        $NJ = 'NATURE JOIN';
+        $NJ = 'NATURAL JOIN';
         $queryJoinedGroup = Groups::find()->join($NJ, ['groupmembers'])
+                ->where(['m_user' => $this->getUser()->username])
                 ->select('*');
+
                 
         $pagination_joinedgroup = new Pagination([
-            'defaultPageSize' => 3,
+            'defaultPageSize' => 2,
             'totalCount' => $queryJoinedGroup->count(),
+            'pageParam' => 'joined-page',
         ]);
         
         $joinedGroups = $queryJoinedGroup
@@ -128,6 +155,69 @@ class SiteController extends Controller
                 ->all();
         return ['joinedGroups'=>$joinedGroups, 'pagenation'=>$pagination_joinedgroup];
     }
+    // End ViewGroup
+    
+    public function actionSearchGroup()
+    {
+        $keywords = new SearchKW();
+        if ($keywords->load(Yii::$app->request->post()) && $keywords->validate())
+        {
+            $foundGroups = $this->searchGroups($this->str2array($keywords->keywords));
+            return $this->render('search-group', [
+            'Groups' => $foundGroups['Groups'],
+            'Pagination' => $foundGroups['pagenation'],
+            'keywords' => $keywords
+            ]);
+        }
+        return $this->render('search-group', [
+            'Groups' => [],
+            'Pagination' => [],
+            'keywords' => $keywords
+        ]);
+    }
+    
+    private function str2array($str)
+    {
+        $res = explode(',', $str);
+        $i = 0;
+        foreach($res as $r)
+        {
+            $res[$i] = trim($r);
+            $i += 1;
+        }
+        return $res;
+    }
+    
+    /*
+     * Help function to search database for the groups
+     * that the current logged-in user joined
+     * 
+     * @return ['myGroups'=>ActiveRecord, 'pagenation'=>Pagination]
+     */
+    private function searchGroups($keywords)
+    {
+        $NJ = 'NATURAL JOIN';
+        
+        //TODO: Check out this functions correctly
+        $username = $this->getUser()->username;
+        $subquery = Groupmembers::find()
+                ->where(['not', ['l_user' => $username]])
+                ->andwhere(['not', ['m_user' => $username]]);
+        $queryGroups = Groups::find()->join($NJ, [$subquery])
+                ->where(['or like', 'descripton', $keywords]);
+        $queryGroups->select('*');
+        $pagination = new Pagination([
+            'defaultPageSize' => 6,
+            'totalCount' => $queryGroups->count(),
+            'pageParam' => 'joined-page',
+        ]);
+        $groups = $queryGroups
+                ->offset($pagination->offset)
+                ->limit($pagination->limit)
+                ->all();
+        return ['Groups'=>$groups, 'pagenation'=>$pagination];
+    }
+    
     
     public function actionProfile()
     {
@@ -140,12 +230,17 @@ class SiteController extends Controller
         {
             if($profile->save())
             {
-                return $this->render('say', ['message'=>'You submited your profile successfully!']);
+                return $this->render('say', ['title'=>'successfully', 'message'=>'<3>You submited your profile successfully!</h3>']);
             }
         }
         return $this->render('profile', ['model'=>$profile]);
     }
     
+    /*
+     * Find the logged-in user
+     * 
+     * @return user
+     */
     private function getUser()
     {
         $id = \Yii::$app->user->getId();
@@ -210,7 +305,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->actionSay('You have logged in successfully!');
+            return $this->redirect('index');
         }
         return $this->render('login', [
             'model' => $model,
