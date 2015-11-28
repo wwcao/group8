@@ -9,28 +9,21 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-recipes">
 <h1> Find Crafting Projects on The Following Websites: </h1>
-<p>
-</p>
-<p>
-</p>
-    <h3>Cooking and baking</h3>
+
+    <h2>Cooking and baking</h2>
 
     <p>
         <a href="http://allrecipes.com">Allrecipes</a>
-
-
     </p>
     <p>
     	<a href="http://www.epicurious.com">Epicurious</a>
-
-     </p>
-     <p>
-     	 <a href="http://www.food.com">Food</a>
-
-      </p>
-      <p>
-      <a href="http://www.simplyrecipes.com">Simply Recipes</a>
-      </p>
+    </p>
+    <p>
+		<a href="http://www.foodnetwork.com/">Food Network</a>
+    </p>
+    <p>
+		<a href="http://www.simplyrecipes.com">Simply Recipes</a>
+    </p>
 
     
 </div>
@@ -102,7 +95,7 @@ $this->params['breadcrumbs'][] = $this->title;
     
 </div>
 <div class="site-recipes">
-    <h1>Gardening, growing vegetables, and other plant-related activities:</h1>
+    <h2>Gardening, growing vegetables, and other plant-related activities:</h2>
 
     <p>
         <a href="http://allrecipes.com">Allrecipes</a>
@@ -114,7 +107,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
      </p>
      <p>
-         <a href="http://www.food.com">Food</a>
+         <a href="http://www.food.com">Food Network</a>
 
       </p>
       <p>
