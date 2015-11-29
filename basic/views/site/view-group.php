@@ -13,11 +13,11 @@ use yii\widgets\LinkPager;
                     <h4><?= Html::encode("{$group->groupname}") ?></h4>
                     <p>Created on <?= Html::encode("{$group->create_date}") ?></p>
                     <p style="text-align:left;"><?php 
-                        $content = $group->descripton;
+                        $content = $group->description;
                         /*
                         if(strlen($content) > 150)
                         {
-                            $content = substr($group->descripton, 1, 80) . '...';
+                            $content = substr($group->description, 1, 80) . '...';
                         }*/
                         ?>
                         <?= Html::encode("{$content}") ?>

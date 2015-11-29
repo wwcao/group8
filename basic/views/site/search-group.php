@@ -26,12 +26,11 @@ if($keywords == "")
                     By <?= Html::encode("{$group->l_user}") ?></h4>
                     <p>Created on <?= Html::encode("{$group->create_date}") ?></p>
                     <p style="text-align:left;">
-                        <span title="I am hovering over the text">
-                            <?php 
-                                $content = $group->descripton;
-                            ?>
-                            <?= Html::encode("{$content}") ?>
-                        </span>
+                        <?php 
+                            $content = $group->description;
+                        ?>
+                        <?= Html::encode("{$content}") ?>
+                        <?= Html::a('Join', ['join', 'f_user' => $group->l_user, 'groupname'=>$group->groupname], ['class' => 'btn btn-primary']) ?>
                     </p>
                 </div>
             </div>

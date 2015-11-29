@@ -9,7 +9,7 @@ use Yii;
  *
  * @property string $groupname
  * @property string $l_user
- * @property resource $descripton
+ * @property resource $description
  * @property string $create_date
  * @property string $status
  *
@@ -31,8 +31,8 @@ class Groups extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['groupname', 'l_user', 'descripton'], 'required'],
-            [['descripton'], 'string'],
+            [['groupname', 'l_user', 'description'], 'required'],
+            [['description'], 'string'],
             [['create_date'], 'safe'],
             [['groupname', 'l_user'], 'string', 'max' => 50],
             [['status'], 'string', 'max' => 1]
@@ -47,7 +47,7 @@ class Groups extends \yii\db\ActiveRecord
         return [
             'groupname' => 'Groupname',
             'l_user' => 'L User',
-            'descripton' => 'Descripton',
+            'description' => 'Description',
             'create_date' => 'Create Date',
             'status' => 'Status',
         ];

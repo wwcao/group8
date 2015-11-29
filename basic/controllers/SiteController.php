@@ -176,6 +176,10 @@ class SiteController extends Controller
         ]);
     }
     
+    public function actionActionOnGroup($acction, $id){
+        return $this->render('index');
+    }
+    
     private function str2array($str)
     {
         $res = explode(',', $str);
@@ -201,10 +205,10 @@ class SiteController extends Controller
         //TODO: Check out this functions correctly
         $username = $this->getUser()->username;
         $subquery = Groupmembers::find()
-                ->where(['not', ['l_user' => $username]])
-                ->andwhere(['not', ['m_user' => $username]]);
+                ->where(['l_user' => $username])
+                ->andwhere(['m_user' => $username]);
         $queryGroups = Groups::find()->join($NJ, [$subquery])
-                ->where(['or like', 'descripton', $keywords]);
+                ->where(['or like', 'description', $keywords]);
         $queryGroups->select('*');
         $pagination = new Pagination([
             'defaultPageSize' => 6,

@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
         <?= $form->field($model, 'groupname') ?>
-        <?= $form->field($model, 'descripton')->textarea(['rows' => 5, 'cols' => 45])?>
+        <?= $form->field($model, 'description')->textarea(['rows' => 5, 'cols' => 45])?>
     
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
