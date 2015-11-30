@@ -70,7 +70,7 @@ class SiteController extends Controller
             {
                 if($group->save())
                 {
-                    return $this->render('say', ['message'=>'Group is Created']);
+                    return $this->goHome();
                 } else {
                     return $this->render('say', ['message'=>'GroupErr']);
                 }
@@ -172,7 +172,7 @@ class SiteController extends Controller
      * @return ['myGroups'=>ActiveRecord, 'pagenation'=>Pagination]
      */
     public function actionUserAction($action, $groupinfo){
-        $array = explode(',', $groupinfo);
+        $array = explode('`', $groupinfo);
         $isExpired = false;
         if($isExpired){
             return $this->render('error', 
@@ -182,18 +182,20 @@ class SiteController extends Controller
         }
         switch($action){
             case 'delete':
-                $group = Groups::findOne(["l_user"=>$array[0],"groupname"=>$array[1]]);
-                $group->delete();
+                $group=  Groups::deleteAll(["l_user"=>$array[0],"groupname"=>$array[1]]);
                 return $this->goHome();
             case 'leave':
+                // check existence of the group
+                Groupmembers::deleteAll(["l_user"=>$array[0],"groupname"=>$array[1], "m_user"=>$this->getUser()->username]);
                 return $this->goHome();
             case 'close':
                 $group = Groups::findOne(["l_user"=>$array[0],"groupname"=>$array[1]]);
                 $group->status = 'c';
                 $group->update();
-                $this->goHome();
-            case 'cancel':
-                $this->goHome();
+                return $this->goHome();
+            case 'join':
+                //check existence of the group
+                return $this->goHome();
             default:
                 return $this->render('error', ['name' => 'error', 'message'=>"No Action"]);
         }

@@ -39,7 +39,7 @@ use yii\widgets\LinkPager;
                 </div>
                 <div class="actionOnGroup">
                     <?= Html::a('Delete', 
-                            ['user-action', 'action'=>'delete', 'groupinfo' => $l_user .','. $groupname.','.  time()], 
+                            ['user-action', 'action'=>'delete', 'groupinfo' => $l_user .'`'. $groupname.'`'.  time()], 
                             ['class' => 'btn btn-danger',
                              'data' => [
                              'confirm' => 'Are you sure you want to delete this Group?',
@@ -47,7 +47,7 @@ use yii\widgets\LinkPager;
                             ]])
                         ?>
                     <?php if($group->status == 'o'){?>
-                        <?= Html::a('Close', ['user-action', 'action'=>'close', 'groupinfo' => $l_user .','. $groupname], ['class' => 'btn btn-primary']) ?>
+                        <?= Html::a('Close', ['user-action', 'action'=>'close', 'groupinfo' => $l_user .'`'. $groupname], ['class' => 'btn btn-primary']) ?>
                     <?php }?>
                 </div>
             </div>
@@ -85,7 +85,7 @@ use yii\widgets\LinkPager;
                 <div style="text-align: center;">
                     <?php if($group->status == 'o'){?>
                         <?= Html::a('Leave', 
-                            ['user-action', 'action'=>'leave', 'groupinfo' => $l_user .','. $groupname.','.  time()], 
+                            ['user-action', 'action'=>'leave', 'groupinfo' => $l_user .'`'. $groupname.','.  time()], 
                             ['class' => 'btn btn-danger',
                              'data' => [
                              'confirm' => 'Are you sure you want to leave this Group?',
