@@ -17,6 +17,7 @@ use Yii;
  */
 class Groups extends \yii\db\ActiveRecord
 {
+    public $members;
     /**
      * @inheritdoc
      */

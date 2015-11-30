@@ -15,6 +15,7 @@ use Yii;
  */
 class Groupmembers extends \yii\db\ActiveRecord
 {
+    public $m_users;
     /**
      * @inheritdoc
      */
@@ -30,7 +31,8 @@ class Groupmembers extends \yii\db\ActiveRecord
     {
         return [
             [['groupname', 'l_user', 'm_user'], 'required'],
-            [['groupname', 'l_user', 'm_user'], 'string', 'max' => 50]
+            [['groupname', 'l_user', 'm_user'], 'string', 'max' => 50],
+            //['m_users', 'safe']
         ];
     }
 

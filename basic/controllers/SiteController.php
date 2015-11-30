@@ -75,7 +75,7 @@ class SiteController extends Controller
                     return $this->render('say', ['message'=>'GroupErr']);
                 }
             } else {
-                return $this->render('say', ['message'=>'You created ' . $group->groupname . '!']);
+                return $this->goHome();
             }
         }
 	return $this->render('creategroup', ['model'=>$group]);
@@ -113,20 +113,28 @@ class SiteController extends Controller
      */
     private function getMyGroups()
     {
+        $username = $this->getUser()->username;
         $queryMyGroup = Groups::find()
-                ->where(['l_user' => $this->getUser()->username]);
+                ->where(['l_user' => $username]);
+        $Groups = Groupmembers::find()
+                ->groupBy('groupname')
+                ->where(['l_user' => $username])
+                ->select(['groupname'])
+                ->addSelect(["GROUP_CONCAT(m_user SEPARATOR ', ') as m_users"])
+                ->all();
         
         $pagination_mygroups = new Pagination([
             'defaultPageSize' => 4,
             'totalCount' => $queryMyGroup->count(),
             'pageParam' => 'my-page',
         ]);
-
+        
         $myGroups = $queryMyGroup->orderBy('create_date')
             ->offset($pagination_mygroups->offset)
             ->limit($pagination_mygroups->limit)
             ->all();
-        return ['myGroups'=>$myGroups, 'pagenation'=>$pagination_mygroups];
+        
+        return ['myGroups'=>['Groups'=>$myGroups, 'Members'=>$Groups], 'pagenation'=>$pagination_mygroups];
     }
     
     /*
@@ -141,7 +149,7 @@ class SiteController extends Controller
         $queryJoinedGroup = Groups::find()->join($NJ, ['groupmembers'])
                 ->where(['m_user' => $this->getUser()->username])
                 ->select('*');
-
+        
                 
         $pagination_joinedgroup = new Pagination([
             'defaultPageSize' => 2,
@@ -154,6 +162,41 @@ class SiteController extends Controller
                 ->limit($pagination_joinedgroup->limit)
                 ->all();
         return ['joinedGroups'=>$joinedGroups, 'pagenation'=>$pagination_joinedgroup];
+    }
+    
+    /*
+     * action without php in views
+     * Update, Delete from gorups or groupmember
+     * @param $action type String 'delect'|'leave'|'close'|'join'
+     * @param $groupinfo type String in format 'l_user,groupname,timestamp'
+     * @return ['myGroups'=>ActiveRecord, 'pagenation'=>Pagination]
+     */
+    public function actionUserAction($action, $groupinfo){
+        $array = explode(',', $groupinfo);
+        $isExpired = false;
+        if($isExpired){
+            return $this->render('error', 
+                    ['name' => 'Exipred Action', 
+                     'message'=>"Your action on the group $array[1] by $array[0] is expired."
+                    ]);
+        }
+        switch($action){
+            case 'delete':
+                $group = Groups::findOne(["l_user"=>$array[0],"groupname"=>$array[1]]);
+                $group->delete();
+                return $this->goHome();
+            case 'leave':
+                return $this->goHome();
+            case 'close':
+                $group = Groups::findOne(["l_user"=>$array[0],"groupname"=>$array[1]]);
+                $group->status = 'c';
+                $group->update();
+                $this->goHome();
+            case 'cancel':
+                $this->goHome();
+            default:
+                return $this->render('error', ['name' => 'error', 'message'=>"No Action"]);
+        }
     }
     // End ViewGroup
     
