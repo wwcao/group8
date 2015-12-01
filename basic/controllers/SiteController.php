@@ -167,41 +167,9 @@ class SiteController extends Controller
     /*
      * action without php in views
      * Update, Delete from gorups or groupmember
-     * @param $action type String 'delect'|'leave'|'close'|'join'
-     * @param $groupinfo type String in format 'l_user,groupname,timestamp'
+     * 
      * @return ['myGroups'=>ActiveRecord, 'pagenation'=>Pagination]
      */
-    /*
-    public function actionUserAction($action, $groupinfo){
-        $array = explode('`', $groupinfo);
-        $isExpired = false;
-        if($isExpired){
-            return $this->render('error', 
-                    ['name' => 'Exipred Action', 
-                     'message'=>"Your action on the group $array[1] by $array[0] is expired."
-                    ]);
-        }
-        switch($action){
-            case 'delete':
-                $group=  Groups::deleteAll(["l_user"=>$array[0],"groupname"=>$array[1]]);
-                return $this->goHome();
-            case 'leave':
-                // check existence of the group
-                Groupmembers::deleteAll(["l_user"=>$array[0],"groupname"=>$array[1], "m_user"=>$this->getUser()->username]);
-                return $this->goHome();
-            case 'close':
-                $group = Groups::findOne(["l_user"=>$array[0],"groupname"=>$array[1]]);
-                $group->status = 'c';
-                $group->update();
-                return $this->goHome();
-            case 'join':
-                //check existence of the group
-                return $this->goHome();
-            default:
-                return $this->render('error', ['name' => 'error', 'message'=>"No Action"]);
-        }
-    }
-     * */
     public function actionUserAction(){
         $request = Yii::$app->request;
         $groupinfo = $request->post();
@@ -253,11 +221,7 @@ class SiteController extends Controller
             'keywords' => $keywords
         ]);
     }
-    
-    public function actionActionOnGroup($acction, $id){
-        return $this->render('index');
-    }
-    
+
     private function str2array($str)
     {
         $res = explode(',', $str);
@@ -278,21 +242,26 @@ class SiteController extends Controller
      */
     private function searchGroups($keywords)
     {
-        $NJ = 'NATURAL JOIN';
+        $join = 'LEFT JOIN';
+        $on = 'on';
         
         //TODO: Check out this functions correctly
         $username = $this->getUser()->username;
-        $subquery = Groupmembers::find()
-                ->where(['l_user' => $username])
-                ->andwhere(['m_user' => $username]);
-        $queryGroups = Groups::find()->join($NJ, [$subquery])
-                ->where(['or like', 'description', $keywords]);
-        $queryGroups->select('*');
+        $table = Groupmembers::find()
+                ->where(['not', ['l_user' => $username]])
+                ->orWhere(['not', ['m_user' => $username]])
+                ->select(['groupname', 'l_user']);
+        $queryGroups = Groups::findBySql('select * from `groups` `a` LEFT JOIN ' . 
+                "(select l_user, gorupname from groupmembers where l_user != $username and m_user != $username) `b` " . ""
+                . "where `a`.l_user=`b`.l_user and `a`.groupname=`b`.groupname");
+                //->where(['or like', 'description', $keywords]);
         $pagination = new Pagination([
             'defaultPageSize' => 6,
-            'totalCount' => $queryGroups->count(),
-            'pageParam' => 'joined-page',
+            'totalCount' => $queryGroups->count('c.*'),
+            'pageParam' => 'page',
         ]);
+        
+        $queryGroups->select('*');
         $groups = $queryGroups
                 ->offset($pagination->offset)
                 ->limit($pagination->limit)

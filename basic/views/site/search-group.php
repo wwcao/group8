@@ -20,17 +20,28 @@ if($keywords == "")
     <p style="margin-left: 6%;">Keywords: <?= Html::encode($keywords->keywords); ?></p>
     <ul class="groupsls">
     <?php foreach ($Groups as $group): ?>
+        <?php
+            $l_user = $group->l_user;
+            $groupname = $group->groupname;
+            $grpName_clear = str_replace(' ', '`', $groupname);
+        ?>
         <li><div class="mygroup">
                 <div class="groupinfo">
-                    <h4><?= Html::encode("{$group->groupname}") ?>
-                    By <?= Html::encode("{$group->l_user}") ?></h4>
+                    <h4><?= Html::encode("{$groupname}") ?>
+                    By <?= Html::encode("{$l_user}") ?></h4>
                     <p>Created on <?= Html::encode("{$group->create_date}") ?></p>
                     <p style="text-align:left;">
                         <?php 
                             $content = $group->description;
                         ?>
                         <?= Html::encode("{$content}") ?>
-                        <?= Html::a('Join', ['join', 'f_user' => $group->l_user, 'groupname'=>$group->groupname], ['class' => 'btn btn-primary']) ?>
+                        <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
+                            <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                            <input type="hidden" name="action" value="leave">
+                            <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname_clear}") ?>>
+                            <input type="hidden" name="l_user" value=<?= Html::encode("{$l_user}") ?>>
+                            <input type="submit" value="Leave" class="btn btn-primary">
+                        </form>
                     </p>
                 </div>
             </div>

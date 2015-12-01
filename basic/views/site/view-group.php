@@ -9,8 +9,9 @@ use yii\widgets\LinkPager;
     <ul class="groupsls">
     <?php foreach ($myGroups['Groups'] as $group): ?>
         <?php
-            $groupname = str_replace(' ', '`', $group->groupname);
+            $groupname =$group->groupname;
             $l_user = $group->l_user;
+            $grpName_clear = str_replace(' ', '`', $groupname);
         ?>
         <li>
             <div class="mygroup">
@@ -45,7 +46,7 @@ use yii\widgets\LinkPager;
                                 <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
                                     <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
                                     <input type="hidden" name="action" value="delete">
-                                    <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname}") ?>>
+                                    <input type="hidden" name="groupname" value=<?= Html::encode("{$grpName_clear}") ?>>
                                     <input type="submit" value="Delete" class="btn btn-danger">
                                 </form>
                             </div>
@@ -56,7 +57,7 @@ use yii\widgets\LinkPager;
                                 <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
                                     <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
                                     <input type="hidden" name="action" value="close">
-                                    <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname}") ?>>
+                                    <input type="hidden" name="groupname" value=<?= Html::encode("{$grpName_clear}") ?>>
                                     <input type="submit" value="Close" class="btn btn-primary">
                                 </form>
                             </div>
@@ -90,6 +91,7 @@ use yii\widgets\LinkPager;
                 <?php
                     $l_user_j = $group->l_user;
                     $groupname_j = str_replace(' ', '`', $group->groupname);
+                    $grpName_j_clear = str_replace(' ', '`', $groupname);
                 ?>
                 <div style="text-align:center;">
                     <h4><?= Html::encode("{$groupname}") ?></h4>
@@ -101,7 +103,7 @@ use yii\widgets\LinkPager;
                         <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
                             <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
                             <input type="hidden" name="action" value="leave">
-                            <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname_j}") ?>>
+                            <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname_j_clear}") ?>>
                             <input type="hidden" name="l_user" value=<?= Html::encode("{$l_user_j}") ?>>
                             <input type="submit" value="Leave" class="btn btn-primary">
                         </form>
