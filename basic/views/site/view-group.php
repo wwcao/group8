@@ -9,10 +9,11 @@ use yii\widgets\LinkPager;
     <ul class="groupsls">
     <?php foreach ($myGroups['Groups'] as $group): ?>
         <?php
-            $groupname = $group->groupname; 
+            $groupname = str_replace(' ', '`', $group->groupname);
             $l_user = $group->l_user;
         ?>
-        <li><div class="mygroup">
+        <li>
+            <div class="mygroup">
                 <div class="groupinfo">
                     <h4><?= Html::encode("{$groupname}") ?></h4>
                     <p>Created on <?= Html::encode("{$group->create_date}") ?></p>
@@ -37,18 +38,31 @@ use yii\widgets\LinkPager;
                             <p style="color: red; margin-left: 5px;"> <?php echo "(0) You"; ?> </p>
                     <?php endif; ?>
                 </div>
-                <div class="actionOnGroup">
-                    <?= Html::a('Delete', 
-                            ['user-action', 'action'=>'delete', 'groupinfo' => $l_user .'`'. $groupname.'`'.  time()], 
-                            ['class' => 'btn btn-danger',
-                             'data' => [
-                             'confirm' => 'Are you sure you want to delete this Group?',
-                             'method' => 'post',
-                            ]])
-                        ?>
-                    <?php if($group->status == 'o'){?>
-                        <?= Html::a('Close', ['user-action', 'action'=>'close', 'groupinfo' => $l_user .'`'. $groupname], ['class' => 'btn btn-primary']) ?>
-                    <?php }?>
+                <div style="display: table;">
+                    <ul class="group-btn">
+                        <li>
+                            <div>
+                                <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
+                                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname}") ?>>
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                </form>
+                            </div>
+                        </li>
+                        <?php if($group->status == 'o') { ?>
+                        <li>
+                            <div>
+                                <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
+                                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                                    <input type="hidden" name="action" value="close">
+                                    <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname}") ?>>
+                                    <input type="submit" value="Close" class="btn btn-primary">
+                                </form>
+                            </div>
+                        </li>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
         </li>
@@ -74,8 +88,8 @@ use yii\widgets\LinkPager;
     <?php foreach ($joinedGroups as $group): ?>
         <li><div class="joinedgroup">
                 <?php
-                    $l_user = $group->l_user;
-                    $groupname = $group->groupname;
+                    $l_user_j = $group->l_user;
+                    $groupname_j = str_replace(' ', '`', $group->groupname);
                 ?>
                 <div style="text-align:center;">
                     <h4><?= Html::encode("{$groupname}") ?></h4>
@@ -84,14 +98,13 @@ use yii\widgets\LinkPager;
                 </div>
                 <div style="text-align: center;">
                     <?php if($group->status == 'o'){?>
-                        <?= Html::a('Leave', 
-                            ['user-action', 'action'=>'leave', 'groupinfo' => $l_user .'`'. $groupname.','.  time()], 
-                            ['class' => 'btn btn-danger',
-                             'data' => [
-                             'confirm' => 'Are you sure you want to leave this Group?',
-                             'method' => 'post',
-                            ]])
-                        ?>
+                        <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
+                            <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                            <input type="hidden" name="action" value="leave">
+                            <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname_j}") ?>>
+                            <input type="hidden" name="l_user" value=<?= Html::encode("{$l_user_j}") ?>>
+                            <input type="submit" value="Leave" class="btn btn-primary">
+                        </form>
                     <?php } else {?>
                         <?= Html::a('Stayed', ['class' => 'btn btn-gray']) ?>
                     <?php } ?>

@@ -171,6 +171,7 @@ class SiteController extends Controller
      * @param $groupinfo type String in format 'l_user,groupname,timestamp'
      * @return ['myGroups'=>ActiveRecord, 'pagenation'=>Pagination]
      */
+    /*
     public function actionUserAction($action, $groupinfo){
         $array = explode('`', $groupinfo);
         $isExpired = false;
@@ -190,6 +191,38 @@ class SiteController extends Controller
                 return $this->goHome();
             case 'close':
                 $group = Groups::findOne(["l_user"=>$array[0],"groupname"=>$array[1]]);
+                $group->status = 'c';
+                $group->update();
+                return $this->goHome();
+            case 'join':
+                //check existence of the group
+                return $this->goHome();
+            default:
+                return $this->render('error', ['name' => 'error', 'message'=>"No Action"]);
+        }
+    }
+     * */
+    public function actionUserAction(){
+        $request = Yii::$app->request;
+        $groupinfo = $request->post();
+        if($groupinfo==null){
+            return $this->render('error', ['name' => 'error', 'message'=>'Request is not operated...']);
+        }
+        $thisuser = $this->getUser()->username;
+        $action = $groupinfo['action'];
+        //return $this->render('error', ['name' => 'error', 'message'=>$action]);
+        $groupname = str_replace('`', ' ', $groupinfo['groupname']);
+        switch($action){
+            case 'delete':
+                $group=  Groups::deleteAll(["l_user"=>$thisuser,"groupname"=>$groupname]);
+                return $this->goHome();
+            case 'leave':
+                // check existence of the group
+                $grp_mem = Groupmembers::deleteAll(["l_user"=>$groupinfo['l_user'],"groupname"=>$groupname, "m_user"=>$thisuser]);
+                //return $this->render('error', ['name' => 'error', 'message'=>$groupinfo['l_user'].$groupname.$thisuser]);
+                return $this->goHome();
+            case 'close':
+                $group = Groups::findOne(["l_user"=>$thisuser,"groupname"=>$groupname]);
                 $group->status = 'c';
                 $group->update();
                 return $this->goHome();

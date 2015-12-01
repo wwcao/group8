@@ -164,3 +164,19 @@ ul li {
 .btn-gray {
     background-color: gray;
 }
+
+.group-btn ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.group-btn ul li {
+    display: inline-block;
+}
+
+.group-btn ul li div {
+    margin: 0px;
+    padding: 0px;
+}
