@@ -185,10 +185,13 @@ class SiteController extends Controller
                 $group=  Groups::deleteAll(["l_user"=>$thisuser,"groupname"=>$groupname]);
                 return $this->goHome();
             case 'leave':
-                // check existence of the group
-                $grp_mem = Groupmembers::deleteAll(["l_user"=>$groupinfo['l_user'],"groupname"=>$groupname, "m_user"=>$thisuser]);
-                //return $this->render('error', ['name' => 'error', 'message'=>$groupinfo['l_user'].$groupname.$thisuser]);
-                return $this->goHome();
+                $l_user = $groupinfo['l_user'];
+                $group = Groups::findOne([["l_user"=>$l_user,"groupname"=>$groupname]]);
+                if(count($group)!=0&&$group->status!='c'){
+                    $grp_mem = Groupmembers::deleteAll(["l_user"=>$groupinfo['l_user'],"groupname"=>$groupname, "m_user"=>$thisuser]);
+                    return $this->goHome();
+                }
+                return $this->render('error', ['name' => 'error', 'message'=>"Unable to leave $groupname created by $l_user. Checking the status of this group"]);
             case 'close':
                 $group = Groups::findOne(["l_user"=>$thisuser,"groupname"=>$groupname]);
                 $group->status = 'c';
@@ -196,7 +199,20 @@ class SiteController extends Controller
                 return $this->goHome();
             case 'join':
                 //check existence of the group
-                return $this->goHome();
+                $l_user = $groupinfo['l_user'];
+                $group = Groups::findOne([["l_user"=>$l_user,"groupname"=>$groupname]]);
+                if(count($group)!=0){
+                    $grp_mem = new Groupmembers;
+                    $grp_mem->l_user = $l_user;
+                    $grp_mem->groupname = $groupname;
+                    $grp_mem->m_user = $thisuser;
+                    if($grp_mem->save()){
+                        return $this->goHome();
+                    }
+                    return $this->render('error', ['name' => 'error', 'message'=>"Unable to join $groupname created by $l_user"]);
+                }
+                return $this->render('error', ['name' => 'error', 'message'=>"Unable to join $groupname created by $l_user"]);
+                //return $this->goHome();
             default:
                 return $this->render('error', ['name' => 'error', 'message'=>"No Action"]);
         }
@@ -207,24 +223,32 @@ class SiteController extends Controller
     {
         $request = Yii::$app->request;
         $keywords = $request->post('keywords');
+        $by_interest = $request->post('by_interest');
+        if($by_interest)
+        {
+            return $this->render('error', ['name' => 'error', 'message'=>"Page Constructing..."]);
+        }
         if ($keywords!='')
         {
-            $foundGroups = $this->searchGroups($this->str2array($keywords));
-            return $this->render('search-group', [
-            'Groups' => $foundGroups['Groups'],
-            'Pagination' => $foundGroups['pagenation'],
-            'keywords' => $keywords
-            ]);
+            return $this->actionJoinGroup($keywords);
         }
-        return $this->render('search-group', [
-            'Groups' => [],
-            'Pagination' => [],
-            'keywords' => $keywords
+        return $this->render('search-group');
+    }
+    
+    public function actionJoinGroup($keywords)
+    {
+        
+        $foundGroups = $this->searchGroups($this->str2array($keywords));
+        return $this->render('join-group', [
+                                'Groups' => $foundGroups['Groups'],
+                                //'Pagination' => $foundGroups['pagenation'],
+                                'keywords' => $keywords
         ]);
     }
 
     private function str2array($str)
     {
+        //preg_match('/^[a-zA-Z].*[a-zA-Z]$/', $str) 
         $res = explode(',', $str);
         $i = 0;
         foreach($res as $r)
@@ -246,24 +270,37 @@ class SiteController extends Controller
         
         //TODO: Check out this functions correctly
         $username = $this->getUser()->username;
+        $reserved = ['where', 'interest', 'interests', 'when', 'where'];
+        $likecondition = '';
         
-         // select a.l_user, a.groupname from groups a LEFT JOIN groupmembers b on a.l_user=b.l_user and a.groupname = b.groupname;
+        foreach($keywords as $x){
+            if($x=='' || in_array(strtolower($x), $reserved)){
+                continue;
+            }
+            $likecondition .= "description like '%" . $x . "%' OR "; 
+        }
+        
+        if($likecondition == ''){
+            return ['Groups'=>[]];
+        }
+        
+        $likecondition = substr($likecondition, 0, -4);
+        $q_joinTbles = "select a.* from (select * from groups where l_user!='$username' and status!='c') a LEFT JOIN (select * from groupmembers where m_user!='$username') b on a.l_user=b.l_user and a.groupname=b.groupname";
+        
         $queryGroups = Groups::findBySql(
-                "select a.* from groups a LEFT JOIN groupmembers b on a.l_user=b.l_user and a.groupname=b.groupname"
+                "select * from ($q_joinTbles) c where $likecondition order by create_date desc limit 10"
                 );
-                //->where(['or like', 'description', $keywords]);
+        /*
         $pagination = new Pagination([
             'defaultPageSize' => 6,
-            'totalCount' => $queryGroups->count(),
+            'totalCount' => count($queryGroups),
             'pageParam' => 'page',
         ]);
+         */
         
         $queryGroups->select('*');
-        $groups = $queryGroups
-                ->offset($pagination->offset)
-                ->limit($pagination->limit)
-                ->all();
-        return ['Groups'=>$groups, 'pagenation'=>$pagination];
+        $groups = $queryGroups->all();
+        return ['Groups'=>$groups];
     }
     
     

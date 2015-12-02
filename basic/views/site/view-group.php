@@ -42,7 +42,7 @@ use yii\widgets\LinkPager;
                 <div style="display: table;">
                     <ul class="group-btn">
                         <li>
-                            <div>
+                            <div style="display: inline;">
                                 <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
                                     <input type="hidden" name="_csrf" value=<?=Yii::$app->request->getCsrfToken()?>>
                                     <input type="hidden" name="action" value="delete">
@@ -53,7 +53,7 @@ use yii\widgets\LinkPager;
                         </li>
                         <?php if($group->status == 'o') { ?>
                         <li>
-                            <div>
+                            <div style="display: inline;">
                                 <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
                                     <input type="hidden" name="_csrf" value=<?=Yii::$app->request->getCsrfToken()?>>
                                     <input type="hidden" name="action" value="close">
@@ -90,25 +90,25 @@ use yii\widgets\LinkPager;
         <li><div class="joinedgroup">
                 <?php
                     $l_user_j = $group->l_user;
-                    $groupname_j = str_replace(' ', '`', $group->groupname);
-                    $grpName_j_clear = str_replace(' ', '`', $groupname);
+                    $groupname_j = $group->groupname;
+                    $grpName_j_clear = str_replace(' ', '`', $groupname_j);
                 ?>
                 <div style="text-align:center;">
-                    <h4><?= Html::encode("{$groupname}") ?></h4>
+                    <h4><?= Html::encode("{$groupname_j}") ?></h4>
                     <p>Created on <?= Html::encode("{$group->create_date}") ?>
-                    <br>By <?= Html::encode("{$l_user}") ?></p>
+                    <br>By <?= Html::encode("{$l_user_j}") ?></p>
                 </div>
                 <div style="text-align: center;">
                     <?php if($group->status == 'o'){?>
                         <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
                             <input type="hidden" name="_csrf" value=<?=Yii::$app->request->getCsrfToken()?>>
                             <input type="hidden" name="action" value="leave">
-                            <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname_j_clear}")?>>
+                            <input type="hidden" name="groupname" value=<?= Html::encode("{$grpName_j_clear}")?>>
                             <input type="hidden" name="l_user" value=<?= Html::encode("{$l_user_j}") ?>>
                             <input type="submit" value="Leave" class="btn btn-primary">
                         </form>
                     <?php } else {?>
-                        <?= Html::a('Stayed', ['class' => 'btn btn-gray']) ?>
+                        <p style="color: green; font-size: 130%;">Ready!</p>
                     <?php } ?>
                 </div>
             </div>
