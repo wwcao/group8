@@ -44,7 +44,7 @@ use yii\widgets\LinkPager;
                         <li>
                             <div>
                                 <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
-                                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                                    <input type="hidden" name="_csrf" value=<?=Yii::$app->request->getCsrfToken()?>>
                                     <input type="hidden" name="action" value="delete">
                                     <input type="hidden" name="groupname" value=<?= Html::encode("{$grpName_clear}") ?>>
                                     <input type="submit" value="Delete" class="btn btn-danger">
@@ -55,7 +55,7 @@ use yii\widgets\LinkPager;
                         <li>
                             <div>
                                 <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
-                                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                                    <input type="hidden" name="_csrf" value=<?=Yii::$app->request->getCsrfToken()?>>
                                     <input type="hidden" name="action" value="close">
                                     <input type="hidden" name="groupname" value=<?= Html::encode("{$grpName_clear}") ?>>
                                     <input type="submit" value="Close" class="btn btn-primary">
@@ -101,9 +101,9 @@ use yii\widgets\LinkPager;
                 <div style="text-align: center;">
                     <?php if($group->status == 'o'){?>
                         <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
-                            <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                            <input type="hidden" name="_csrf" value=<?=Yii::$app->request->getCsrfToken()?>>
                             <input type="hidden" name="action" value="leave">
-                            <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname_j_clear}") ?>>
+                            <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname_j_clear}")?>>
                             <input type="hidden" name="l_user" value=<?= Html::encode("{$l_user_j}") ?>>
                             <input type="submit" value="Leave" class="btn btn-primary">
                         </form>

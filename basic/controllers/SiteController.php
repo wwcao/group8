@@ -205,10 +205,11 @@ class SiteController extends Controller
     
     public function actionSearchGroup()
     {
-        $keywords = new SearchKW();
-        if ($keywords->load(Yii::$app->request->post()) && $keywords->validate())
+        $request = Yii::$app->request;
+        $keywords = $request->post('keywords');
+        if ($keywords!='')
         {
-            $foundGroups = $this->searchGroups($this->str2array($keywords->keywords));
+            $foundGroups = $this->searchGroups($this->str2array($keywords));
             return $this->render('search-group', [
             'Groups' => $foundGroups['Groups'],
             'Pagination' => $foundGroups['pagenation'],
@@ -242,22 +243,18 @@ class SiteController extends Controller
      */
     private function searchGroups($keywords)
     {
-        $join = 'LEFT JOIN';
-        $on = 'on';
         
         //TODO: Check out this functions correctly
         $username = $this->getUser()->username;
-        $table = Groupmembers::find()
-                ->where(['not', ['l_user' => $username]])
-                ->orWhere(['not', ['m_user' => $username]])
-                ->select(['groupname', 'l_user']);
-        $queryGroups = Groups::findBySql('select * from `groups` `a` LEFT JOIN ' . 
-                "(select l_user, gorupname from groupmembers where l_user != $username and m_user != $username) `b` " . ""
-                . "where `a`.l_user=`b`.l_user and `a`.groupname=`b`.groupname");
+        
+         // select a.l_user, a.groupname from groups a LEFT JOIN groupmembers b on a.l_user=b.l_user and a.groupname = b.groupname;
+        $queryGroups = Groups::findBySql(
+                "select a.* from groups a LEFT JOIN groupmembers b on a.l_user=b.l_user and a.groupname=b.groupname"
+                );
                 //->where(['or like', 'description', $keywords]);
         $pagination = new Pagination([
             'defaultPageSize' => 6,
-            'totalCount' => $queryGroups->count('c.*'),
+            'totalCount' => $queryGroups->count(),
             'pageParam' => 'page',
         ]);
         

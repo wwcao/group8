@@ -9,15 +9,19 @@ if($keywords == "")
 }
 ?>
 
-<?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($keywords, 'keywords')->input('text', ['style'=>'width: 60%'])->hint("use seperator ','") ?>
-    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+<?php $form = ActiveForm::begin(
+        ['action'=> \yii\helpers\Url::to(['search-group']),]
+        ); ?>
+	<!--	Adding fields: add variable in models/SignupForm.php -->
+    <?= Html::textInput("keywords", "", ['class'=>'searchtext'])?>
+    <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+
 <?php ActiveForm::end(); ?>
 
 <?php if($Groups!=Null&&count($Groups)>0) { ?>
 <div>
     <h4 style="margin-left: 5%;">Match Group</h4>
-    <p style="margin-left: 6%;">Keywords: <?= Html::encode($keywords->keywords); ?></p>
+    <p style="margin-left: 6%;">Keywords: <?= Html::encode($keywords); ?></p>
     <ul class="groupsls">
     <?php foreach ($Groups as $group): ?>
         <?php
@@ -36,9 +40,9 @@ if($keywords == "")
                         ?>
                         <?= Html::encode("{$content}") ?>
                         <form action="<?= Html::encode(\yii\helpers\Url::to(['user-action'])) ?>" method="post">
-                            <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                            <input type="hidden" name="_csrf" value=<?=Yii::$app->request->getCsrfToken()?>>
                             <input type="hidden" name="action" value="leave">
-                            <input type="hidden" name="groupname" value=<?= Html::encode("{$groupname_clear}") ?>>
+                            <input type="hidden" name="groupname" value=<?= Html::encode("{$grpName_clear}") ?>>
                             <input type="hidden" name="l_user" value=<?= Html::encode("{$l_user}") ?>>
                             <input type="submit" value="Leave" class="btn btn-primary">
                         </form>
@@ -53,10 +57,4 @@ if($keywords == "")
     </div>
 </div>
 
-<?php } else {?>
-    <?php if($keywords->keywords!="") {?>
-        <div class="no-group">
-            <h2>No Group is found!</h2>
-        </div>
-    <?php }?>
 <?php }?>
