@@ -13,7 +13,8 @@
 - 2. PHP GD extension
 - 3. Setup codecept for test (Instruction in basic/tests) OPTIONAL!
 
-## Run Test:
+## Run Test: (need to setup)
 - 1. codecept run @ basic/tests
+
 
 
