@@ -53,6 +53,11 @@ class ProfileForm extends \yii\db\ActiveRecord
         ];
     }
     
+    /**
+     * initializing the object (test1)
+     *
+     * @return None
+     */
     public function initialize()
     {
         $this->username = '';
@@ -61,6 +66,11 @@ class ProfileForm extends \yii\db\ActiveRecord
         $this->phone_num = '';
     }
     
+    /**
+     * initializing the object (test2)
+     *
+     * @return None
+     */
     public function test_initialize()
     {
         $this->username = 'admin';
@@ -69,6 +79,13 @@ class ProfileForm extends \yii\db\ActiveRecord
         $this->phone_num = '';
     }
     
+    /**
+     * Update Profile if existing, Add if the record is new
+     *
+     * @param  $user: Object User
+     * @param  $signupform Object SignupForm
+     * @return boolean if password provided is valid for current user
+     */
     public function addUserProfile($user, $signupfrom)
     {
         $this->initialize();

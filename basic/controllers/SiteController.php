@@ -14,7 +14,6 @@ use app\models\User;
 use app\models\ProfileForm;
 use app\models\Groups;
 use app\models\Groupmembers;
-use app\models\SearchKW;
 
 class SiteController extends Controller
 {
@@ -56,7 +55,11 @@ class SiteController extends Controller
 	return $this->render('signup-success', ['model'=>$model]);
     }
     
-    
+    /*
+     * Action: render creategroup.php
+     * 
+     * @return render view-group.php
+     */
     public function actionCreategroup()
     {
         $user = $this->getUser();
@@ -75,7 +78,7 @@ class SiteController extends Controller
                     return $this->render('say', ['message'=>'GroupErr']);
                 }
             } else {
-                return $this->goHome();
+                return $this->render('error', ['name' => 'error', 'message'=>"You Created this group $group->groupname..."]);
             }
         }
 	return $this->render('creategroup', ['model'=>$group]);
@@ -245,7 +248,13 @@ class SiteController extends Controller
                                 'keywords' => $keywords
         ]);
     }
-
+    
+    /*
+     * Helper function to convert string with seperator ','
+     * to array
+     * @param $str: string
+     * @return render view-group.php
+     */
     private function str2array($str)
     {
         //preg_match('/^[a-zA-Z].*[a-zA-Z]$/', $str) 
@@ -303,7 +312,11 @@ class SiteController extends Controller
         return ['Groups'=>$groups];
     }
     
-    
+    /*
+     * Action: render profile.php
+     * 
+     * @return render('profile', ['model'=>$profile]
+     */
     public function actionProfile()
     {
         $id = \Yii::$app->user->getId();
@@ -359,7 +372,7 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    
     public function actions()
     {
         return [

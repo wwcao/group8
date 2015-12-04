@@ -114,13 +114,12 @@ a.desc:after {
 }
 
 .mygroup {
-    z-index: 0;
     margin-top: 10px;
     margin-right: 10px;
     border: 1px solid lightgray;
     width: 40%;
     display: inline-table;
-    height:200px;
+    height:240px;
     box-shadow: 1px 1px 2px #888888;
 }
 
@@ -133,17 +132,17 @@ a.desc:after {
     border: 1px solid lightgray;
     width: 40%;
     display: inline-table;
-    height:130px;
-    box-shadow: 2px 2px 5px #888888;
+    height:220px;
+    box-shadow: 1px 1px 2px #888888;
 }
 
 .joinedgroup:hover {
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 2px 2px 2px #888888;
 }
 
 .groupinfo {
     overflow: hidden;
-    height: 150px;
+    height: 170px;
     padding: 5px 5px 10px 5px;
 }
 
@@ -165,26 +164,14 @@ ul li {
     background-color: gray;
 }
 
-.group-btn ul
-{
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.group-btn ul li {
-    display: inline-block;
-}
-
-.group-btn ul li div {
-    margin: 0px;
-    padding: 0px;
-}
-
 .searchtext {
     font-size: 110%;
     border: 1px solid gray;
     border-radius: 5px;
     height: 35px;
     width: 50%;
+}
+
+form, form div {
+    display: inline; 
 }
