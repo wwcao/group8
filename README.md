@@ -9,18 +9,19 @@ DIRECTORY STRUCTURE
       LoginDB/          contains .sql for database setup
       ScreenShots/      contains website screenshots
       tests/        		contains test results
+      autodoc/					contains auto document in formats html and pdf
       
 ## Instruction:
 
 ### system requirement: 
 1. basic/vendor/* by extracting vendor.tar.gz
 2. PHP GD extension
-..1. install by $ apt-get install php5-gd
+..1. install by $apt-get install php5-gd
 ..2. start or restart server
 3. Setup codecept for test (Instruction in basic/tests) OPTIONAL!
 
 ### Setup Database:
-1. create databae userDB (Updated Table Description)
+1. create databae userDB
 2. create tables users, profiles, groups, groupmembers, interest with queries @ LoginDB/userDB.sql
 3. GRANT ALL PRIVILEGES ON userDB. * TO 'csci_proj'@'localhost' identified by 'csci_proj';
 
