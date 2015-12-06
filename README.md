@@ -1,7 +1,7 @@
 # Hobby Hub
 CSCI 3308 Project  
 Groupmember:  
-Weipeng Cao, Lacey Conrad, Austin Linn, Dmytro Ryzhkov
+Weipeng Cao, Lacey Conrad, Austin Linn, Dmytro Ryzhkov  
 Description:  
 HobbyHub is the first website of its kind! Connect with users from around the world who share the same interests as you. Share your ideas, or read the ideas of others!
 DIRECTORY STRUCTURE
