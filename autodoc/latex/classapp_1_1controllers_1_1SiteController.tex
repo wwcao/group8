@@ -1,0 +1,162 @@
+\hypertarget{classapp_1_1controllers_1_1SiteController}{}\section{app\textbackslash{}controllers\textbackslash{}Site\+Controller Class Reference}
+\label{classapp_1_1controllers_1_1SiteController}\index{app\textbackslash{}controllers\textbackslash{}\+Site\+Controller@{app\textbackslash{}controllers\textbackslash{}\+Site\+Controller}}
+Inheritance diagram for app\textbackslash{}controllers\textbackslash{}Site\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classapp_1_1controllers_1_1SiteController}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_a1c407c5da3459795a0c27d80eaaab5cb}{action\+Signup} ()
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_a2444906d12a76df58f9e75acf2c6f37f}{action\+Signup\+Success} (\$model)
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_a63074c19d6f5bd216a72955b0224c042}{action\+Creategroup} ()
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_a054da8f149f0a2226f509956fad6c3d4}{action\+View\+Group} ()
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_ace13521ef9b29a1d9b25c3cfb377c357}{action\+User\+Action} ()
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_a996f13d312c12ddda17298aa0e79a17f}{action\+Search\+Group} ()
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_add33feeb1946dca691b17c3929e6ad57}{action\+Profile} ()
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_aadfebaf8b8da2faf40149c0d98d93eb0}{action\+Say} (\$message)
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_abdee6c5abd4a3b8e633eef175942e46e}{action\+Index} ()
+\item 
+\hyperlink{classapp_1_1controllers_1_1SiteController_a8ad883ecfb857fc94c385f914ad06c5b}{action\+Login} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+Creategroup@{action\+Creategroup}}
+\index{action\+Creategroup@{action\+Creategroup}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+Creategroup()}{actionCreategroup()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+Creategroup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_a63074c19d6f5bd216a72955b0224c042}{}\label{classapp_1_1controllers_1_1SiteController_a63074c19d6f5bd216a72955b0224c042}
+render Creategroup.\+php with \$model = new Groups();
+
+\begin{DoxyReturn}{Returns}
+\$this-\/$>$render(\textquotesingle{}signup\textquotesingle{}, \mbox{[}\textquotesingle{}model\textquotesingle{} =$>$ \$model\mbox{]}) 
+\end{DoxyReturn}
+\index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+Index@{action\+Index}}
+\index{action\+Index@{action\+Index}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+Index()}{actionIndex()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_abdee6c5abd4a3b8e633eef175942e46e}{}\label{classapp_1_1controllers_1_1SiteController_abdee6c5abd4a3b8e633eef175942e46e}
+render Index.\+php or view-\/group.\+php
+
+\begin{DoxyReturn}{Returns}
+\$this-\/$>$render(\textquotesingle{}index\textquotesingle{}) if not logged in otherwise \$this-\/$>$\hyperlink{classapp_1_1controllers_1_1SiteController_a054da8f149f0a2226f509956fad6c3d4}{action\+View\+Group()} 
+\end{DoxyReturn}
+\index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+Login@{action\+Login}}
+\index{action\+Login@{action\+Login}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+Login()}{actionLogin()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+Login (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_a8ad883ecfb857fc94c385f914ad06c5b}{}\label{classapp_1_1controllers_1_1SiteController_a8ad883ecfb857fc94c385f914ad06c5b}
+render login.\+php or view-\/group.\+php with Param \$model = Login\+Form
+
+\begin{DoxyReturn}{Returns}
+\$this-\/$>$render(\textquotesingle{}login\textquotesingle{}, \mbox{[}\textquotesingle{}model\textquotesingle{} =$>$ \$model,\mbox{]}) 
+\end{DoxyReturn}
+\index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+Profile@{action\+Profile}}
+\index{action\+Profile@{action\+Profile}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+Profile()}{actionProfile()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+Profile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_add33feeb1946dca691b17c3929e6ad57}{}\label{classapp_1_1controllers_1_1SiteController_add33feeb1946dca691b17c3929e6ad57}
+render Profile.\+php with \$model as Profile\+Form if found profile; render Say.\+php with array.\+key = title, message
+
+\begin{DoxyReturn}{Returns}
+\$this-\/$>$render(\textquotesingle{}Join\+Group\textquotesingle{}, array) or \$this-\/$>$render(\textquotesingle{}Say\textquotesingle{}, array) 
+\end{DoxyReturn}
+\index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+Say@{action\+Say}}
+\index{action\+Say@{action\+Say}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+Say(\$message)}{actionSay($message)}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+Say (
+\begin{DoxyParamCaption}
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_aadfebaf8b8da2faf40149c0d98d93eb0}{}\label{classapp_1_1controllers_1_1SiteController_aadfebaf8b8da2faf40149c0d98d93eb0}
+render Say.\+php with array.\+key = message
+
+\begin{DoxyReturn}{Returns}
+\$this-\/$>$render(\textquotesingle{}say\textquotesingle{}, array) 
+\end{DoxyReturn}
+\index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+Search\+Group@{action\+Search\+Group}}
+\index{action\+Search\+Group@{action\+Search\+Group}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+Search\+Group()}{actionSearchGroup()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+Search\+Group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_a996f13d312c12ddda17298aa0e79a17f}{}\label{classapp_1_1controllers_1_1SiteController_a996f13d312c12ddda17298aa0e79a17f}
+render Join\+Group.\+php with array.\+key = Groups, keywords
+
+\begin{DoxyReturn}{Returns}
+\$this-\/$>$render(\textquotesingle{}Join\+Group\textquotesingle{}, array) 
+\end{DoxyReturn}
+\index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+Signup@{action\+Signup}}
+\index{action\+Signup@{action\+Signup}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+Signup()}{actionSignup()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+Signup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_a1c407c5da3459795a0c27d80eaaab5cb}{}\label{classapp_1_1controllers_1_1SiteController_a1c407c5da3459795a0c27d80eaaab5cb}
+render Signup.\+php with \$model = new Signup\+Form();
+
+\begin{DoxyReturn}{Returns}
+\$this-\/$>$render(\textquotesingle{}signup\textquotesingle{}, \mbox{[}\textquotesingle{}model\textquotesingle{} =$>$ \$model\mbox{]}) 
+\end{DoxyReturn}
+$<$ activate the rule \index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+Signup\+Success@{action\+Signup\+Success}}
+\index{action\+Signup\+Success@{action\+Signup\+Success}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+Signup\+Success(\$model)}{actionSignupSuccess($model)}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+Signup\+Success (
+\begin{DoxyParamCaption}
+\item[{}]{\$model}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_a2444906d12a76df58f9e75acf2c6f37f}{}\label{classapp_1_1controllers_1_1SiteController_a2444906d12a76df58f9e75acf2c6f37f}
+render Signup.\+php with \$model = new Signup\+Form(); 
+\begin{DoxyParams}{Parameters}
+{\em \$model} & a app \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this-\/$>$render(\textquotesingle{}signup\textquotesingle{}, \mbox{[}\textquotesingle{}model\textquotesingle{} =$>$ \$model\mbox{]}) 
+\end{DoxyReturn}
+\index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+User\+Action@{action\+User\+Action}}
+\index{action\+User\+Action@{action\+User\+Action}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+User\+Action()}{actionUserAction()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+User\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_ace13521ef9b29a1d9b25c3cfb377c357}{}\label{classapp_1_1controllers_1_1SiteController_ace13521ef9b29a1d9b25c3cfb377c357}
+action without php in views Update, Delete from gorups or groupmember
+
+\begin{DoxyReturn}{Returns}
+\mbox{[}\textquotesingle{}my\+Groups\textquotesingle{}=$>$Active\+Record, \textquotesingle{}pagenation\textquotesingle{}=$>$Pagination\mbox{]} 
+\end{DoxyReturn}
+\index{app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}!action\+View\+Group@{action\+View\+Group}}
+\index{action\+View\+Group@{action\+View\+Group}!app\+::controllers\+::\+Site\+Controller@{app\+::controllers\+::\+Site\+Controller}}
+\subsubsection[{\texorpdfstring{action\+View\+Group()}{actionViewGroup()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}controllers\textbackslash{}\+Site\+Controller\+::action\+View\+Group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1controllers_1_1SiteController_a054da8f149f0a2226f509956fad6c3d4}{}\label{classapp_1_1controllers_1_1SiteController_a054da8f149f0a2226f509956fad6c3d4}
+render View\+Group.\+php with array.\+key = \textquotesingle{}my\+Groups\textquotesingle{},\textquotesingle{}pagination\+My\+Group\textquotesingle{},\textquotesingle{}joined\+Groups\textquotesingle{},\textquotesingle{}pagination\+Joined\+Group\textquotesingle{}
+
+\begin{DoxyReturn}{Returns}
+\$this-\/$>$render(\textquotesingle{}view-\/group\textquotesingle{}, array) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+controllers/Site\+Controller.\+php\end{DoxyCompactItemize}

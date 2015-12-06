@@ -17,7 +17,12 @@ use Yii;
  */
 class Groups extends \yii\db\ActiveRecord
 {
+    /** 
+     * a public variable.
+     * storing the group_concat
+     */
     public $members;
+    
     /**
      * @inheritdoc
      */
@@ -71,6 +76,10 @@ class Groups extends \yii\db\ActiveRecord
         return new GroupsQuery(get_called_class());
     }
     
+    /**
+     * retrieve table groups
+     * @return true if found a match otherwise false
+     */
     public function groupExist(){
         $rows = (new \yii\db\Query())
             ->select(['l_user'])

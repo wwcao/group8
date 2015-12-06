@@ -19,9 +19,9 @@ class SiteController extends Controller
 {
 
     /**
-     * Controll redirection of Signup Form
+     * render Signup.php with $model = new SignupForm();
      * 
-     * @return $this->render()
+     * @return $this->render('signup', ['model' => $model])
      */
     public function actionSignup()
     {	
@@ -43,22 +43,28 @@ class SiteController extends Controller
                 return $this->render('signup-success', ['model'=>$model]);
             }
             $model->password = '';
+            /**< activate the rule */
             $model->userExist('username', []);
         }
         
         // fail to add user, $model is changed branch statements
         return $this->render('signup', ['model' => $model]);
     }
-	
+    
+    /**
+     * render Signup.php with $model = new SignupForm();
+     * @param $model a app\models\SignupFOrm
+     * @return $this->render('signup', ['model' => $model])
+     */
     public function actionSignupSuccess($model)
     {
 	return $this->render('signup-success', ['model'=>$model]);
     }
     
-    /*
-     * Action: render creategroup.php
+    /**
+     * render Creategroup.php with $model = new Groups();
      * 
-     * @return render view-group.php
+     * @return $this->render('signup', ['model' => $model])
      */
     public function actionCreategroup()
     {
@@ -85,12 +91,10 @@ class SiteController extends Controller
     }
     
     
-    // Start View Group
-    /*
-     * Action: Help function to search database for the created groups
-     * that the current logged-in user
+    /**
+     * render ViewGroup.php with array.key = 'myGroups','paginationMyGroup','joinedGroups','paginationJoinedGroup'
      * 
-     * @return render view-group.php
+     * @return $this->render('view-group', array)
      */
     public function actionViewGroup()
     {
@@ -108,7 +112,7 @@ class SiteController extends Controller
         ]);
     }
     
-    /*
+    /**
      * Help function to search database for the created groups
      * that the current logged-in user
      * 
@@ -140,7 +144,7 @@ class SiteController extends Controller
         return ['myGroups'=>['Groups'=>$myGroups, 'Members'=>$Groups], 'pagenation'=>$pagination_mygroups];
     }
     
-    /*
+    /**
      * Help function to search database for the groups
      * that the current logged-in user joined
      * 
@@ -167,7 +171,7 @@ class SiteController extends Controller
         return ['joinedGroups'=>$joinedGroups, 'pagenation'=>$pagination_joinedgroup];
     }
     
-    /*
+    /**
      * action without php in views
      * Update, Delete from gorups or groupmember
      * 
@@ -181,7 +185,7 @@ class SiteController extends Controller
         }
         $thisuser = $this->getUser()->username;
         $action = $groupinfo['action'];
-        //return $this->render('error', ['name' => 'error', 'message'=>$action]);
+        
         $groupname = str_replace('`', ' ', $groupinfo['groupname']);
         switch($action){
             case 'delete':
@@ -220,8 +224,12 @@ class SiteController extends Controller
                 return $this->render('error', ['name' => 'error', 'message'=>"No Action"]);
         }
     }
-    // End ViewGroup
     
+    /**
+     * render JoinGroup.php with array.key = Groups, keywords
+     * 
+     * @return $this->render('JoinGroup', array)
+     */
     public function actionSearchGroup()
     {
         $request = Yii::$app->request;
@@ -249,7 +257,7 @@ class SiteController extends Controller
         ]);
     }
     
-    /*
+    /**
      * Helper function to convert string with seperator ','
      * to array
      * @param $str: string
@@ -268,7 +276,7 @@ class SiteController extends Controller
         return $res;
     }
     
-    /*
+    /**
      * Help function to search database for the groups
      * that the current logged-in user joined
      * 
@@ -299,23 +307,17 @@ class SiteController extends Controller
         $queryGroups = Groups::findBySql(
                 "select * from ($q_joinTbles) c where $likecondition order by create_date desc limit 10"
                 );
-        /*
-        $pagination = new Pagination([
-            'defaultPageSize' => 6,
-            'totalCount' => count($queryGroups),
-            'pageParam' => 'page',
-        ]);
-         */
         
         $queryGroups->select('*');
         $groups = $queryGroups->all();
         return ['Groups'=>$groups];
     }
     
-    /*
-     * Action: render profile.php
+    /**
+     * render Profile.php with $model as ProfileForm if found profile;
+     * render Say.php with array.key = title, message
      * 
-     * @return render('profile', ['model'=>$profile]
+     * @return $this->render('JoinGroup', array) or $this->render('Say', array)
      */
     public function actionProfile()
     {
@@ -334,7 +336,7 @@ class SiteController extends Controller
         return $this->render('profile', ['model'=>$profile]);
     }
     
-    /*
+    /**
      * Find the logged-in user
      * 
      * @return user
@@ -344,7 +346,12 @@ class SiteController extends Controller
         $id = \Yii::$app->user->getId();
         return User::findOne($id);
     }
-	
+    
+    /**
+     * render Say.php with array.key = message
+     * 
+     * @return $this->render('say', array)
+     */
     public function actionSay($message)
     {
 	return $this->render('say', ['message'=>$message]);
@@ -385,7 +392,12 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    
+    /**
+     * render Index.php or view-group.php
+     * 
+     * @return $this->render('index') if not logged in otherwise $this->actionViewGroup()
+     */
     public function actionIndex()
     {
         if (\Yii::$app->user->isGuest) {
@@ -394,7 +406,12 @@ class SiteController extends Controller
             return $this->actionViewGroup();
         }
     }
-
+    
+    /**
+     * render login.php or view-group.php with Param $model = LoginForm
+     * 
+     * @return $this->render('login', ['model' => $model,])
+     */
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {

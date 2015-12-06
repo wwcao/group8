@@ -5,18 +5,14 @@ use yii\base\Model;
 
 class SignupForm extends Model
 {
-	/*
-	1. add variables for signup page
-	2. add rule for the fields
-	*/
     public $username;
     public $password;
     public $f_name;
     public $l_name;
     public $email;
 	
-	const WEAK = 0;
-	const STRONG = 1;
+    const WEAK = 0;
+    const STRONG = 1;
 
     public function rules()
     {
@@ -37,6 +33,10 @@ class SignupForm extends Model
         ];
     }
     
+    /**
+     * modify the value of the variables of current object
+     * return $this
+     */
     public function releaseErrorModel()
     {
 	$this->username = 'Unknown Error';

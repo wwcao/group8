@@ -1,0 +1,4 @@
+INPUT = controllers models
+FILE_PATTERNS = *.php
+USE_PDFLATEX  = YES
+OUTPUT_DIRECTORY = ../autodoc

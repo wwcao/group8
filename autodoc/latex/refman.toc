@@ -1,0 +1,81 @@
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}app\textbackslash {}models\textbackslash {}Contact\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Form Class Reference}{5}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Member Function Documentation}{5}{subsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.2.1}attribute\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Labels()}{5}{subsubsection.3.1.2.1}
+\contentsline {subsubsection}{\numberline {3.1.2.2}contact(\$email)}{5}{subsubsection.3.1.2.2}
+\contentsline {subsubsection}{\numberline {3.1.2.3}rules()}{6}{subsubsection.3.1.2.3}
+\contentsline {section}{\numberline {3.2}app\textbackslash {}models\textbackslash {}Groupmembers Class Reference}{6}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Member Function Documentation}{6}{subsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.1.1}attribute\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Labels()}{6}{subsubsection.3.2.1.1}
+\contentsline {subsubsection}{\numberline {3.2.1.2}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Groupname0()}{6}{subsubsection.3.2.1.2}
+\contentsline {subsubsection}{\numberline {3.2.1.3}rules()}{6}{subsubsection.3.2.1.3}
+\contentsline {subsubsection}{\numberline {3.2.1.4}table\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Name()}{6}{subsubsection.3.2.1.4}
+\contentsline {section}{\numberline {3.3}app\textbackslash {}models\textbackslash {}Groups Class Reference}{7}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Member Function Documentation}{7}{subsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.1.1}attribute\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Labels()}{7}{subsubsection.3.3.1.1}
+\contentsline {subsubsection}{\numberline {3.3.1.2}find()}{7}{subsubsection.3.3.1.2}
+\contentsline {subsubsection}{\numberline {3.3.1.3}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Groupmembers()}{7}{subsubsection.3.3.1.3}
+\contentsline {subsubsection}{\numberline {3.3.1.4}group\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Exist()}{7}{subsubsection.3.3.1.4}
+\contentsline {subsubsection}{\numberline {3.3.1.5}rules()}{8}{subsubsection.3.3.1.5}
+\contentsline {subsubsection}{\numberline {3.3.1.6}table\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Name()}{8}{subsubsection.3.3.1.6}
+\contentsline {subsection}{\numberline {3.3.2}Member Data Documentation}{8}{subsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.2.1}\$members}{8}{subsubsection.3.3.2.1}
+\contentsline {section}{\numberline {3.4}app\textbackslash {}models\textbackslash {}Groups\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Query Class Reference}{8}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Detailed Description}{8}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Member Function Documentation}{8}{subsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.2.1}all(\$db=null)}{8}{subsubsection.3.4.2.1}
+\contentsline {subsubsection}{\numberline {3.4.2.2}one(\$db=null)}{8}{subsubsection.3.4.2.2}
+\contentsline {section}{\numberline {3.5}app\textbackslash {}models\textbackslash {}Login\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Form Class Reference}{9}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Detailed Description}{9}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Member Function Documentation}{9}{subsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.2.1}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}User()}{9}{subsubsection.3.5.2.1}
+\contentsline {subsubsection}{\numberline {3.5.2.2}login()}{9}{subsubsection.3.5.2.2}
+\contentsline {subsubsection}{\numberline {3.5.2.3}rules()}{9}{subsubsection.3.5.2.3}
+\contentsline {subsubsection}{\numberline {3.5.2.4}validate\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Password(\$attribute, \$params)}{9}{subsubsection.3.5.2.4}
+\contentsline {section}{\numberline {3.6}app\textbackslash {}models\textbackslash {}Profile\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Form Class Reference}{10}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Member Function Documentation}{10}{subsection.3.6.1}
+\contentsline {subsubsection}{\numberline {3.6.1.1}add\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}User\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Profile(\$user, \$signupfrom)}{10}{subsubsection.3.6.1.1}
+\contentsline {subsubsection}{\numberline {3.6.1.2}attribute\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Labels()}{10}{subsubsection.3.6.1.2}
+\contentsline {subsubsection}{\numberline {3.6.1.3}initialize()}{11}{subsubsection.3.6.1.3}
+\contentsline {subsubsection}{\numberline {3.6.1.4}rules()}{11}{subsubsection.3.6.1.4}
+\contentsline {subsubsection}{\numberline {3.6.1.5}table\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Name()}{11}{subsubsection.3.6.1.5}
+\contentsline {subsubsection}{\numberline {3.6.1.6}test\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}initialize()}{11}{subsubsection.3.6.1.6}
+\contentsline {section}{\numberline {3.7}app\textbackslash {}models\textbackslash {}Signup\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Form Class Reference}{11}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Member Function Documentation}{11}{subsection.3.7.1}
+\contentsline {subsubsection}{\numberline {3.7.1.1}release\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Error\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Model()}{11}{subsubsection.3.7.1.1}
+\contentsline {subsubsection}{\numberline {3.7.1.2}user\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Exist(\$attribute, \$params)}{11}{subsubsection.3.7.1.2}
+\contentsline {section}{\numberline {3.8}app\textbackslash {}controllers\textbackslash {}Site\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Controller Class Reference}{12}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Member Function Documentation}{12}{subsection.3.8.1}
+\contentsline {subsubsection}{\numberline {3.8.1.1}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Creategroup()}{12}{subsubsection.3.8.1.1}
+\contentsline {subsubsection}{\numberline {3.8.1.2}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Index()}{12}{subsubsection.3.8.1.2}
+\contentsline {subsubsection}{\numberline {3.8.1.3}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Login()}{13}{subsubsection.3.8.1.3}
+\contentsline {subsubsection}{\numberline {3.8.1.4}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Profile()}{13}{subsubsection.3.8.1.4}
+\contentsline {subsubsection}{\numberline {3.8.1.5}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Say(\$message)}{13}{subsubsection.3.8.1.5}
+\contentsline {subsubsection}{\numberline {3.8.1.6}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Search\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Group()}{13}{subsubsection.3.8.1.6}
+\contentsline {subsubsection}{\numberline {3.8.1.7}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Signup()}{13}{subsubsection.3.8.1.7}
+\contentsline {subsubsection}{\numberline {3.8.1.8}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Signup\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Success(\$model)}{13}{subsubsection.3.8.1.8}
+\contentsline {subsubsection}{\numberline {3.8.1.9}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}User\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Action()}{14}{subsubsection.3.8.1.9}
+\contentsline {subsubsection}{\numberline {3.8.1.10}action\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}View\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Group()}{14}{subsubsection.3.8.1.10}
+\contentsline {section}{\numberline {3.9}app\textbackslash {}models\textbackslash {}User Class Reference}{14}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Member Function Documentation}{15}{subsection.3.9.1}
+\contentsline {subsubsection}{\numberline {3.9.1.1}add\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}User(\$model)}{15}{subsubsection.3.9.1.1}
+\contentsline {subsubsection}{\numberline {3.9.1.2}attribute\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Labels()}{15}{subsubsection.3.9.1.2}
+\contentsline {subsubsection}{\numberline {3.9.1.3}find\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}By\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Username(\$username)}{15}{subsubsection.3.9.1.3}
+\contentsline {subsubsection}{\numberline {3.9.1.4}find\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Identity(\$id)}{15}{subsubsection.3.9.1.4}
+\contentsline {subsubsection}{\numberline {3.9.1.5}find\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Identity\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}By\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Access\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Token(\$token, \$type=null)}{15}{subsubsection.3.9.1.5}
+\contentsline {subsubsection}{\numberline {3.9.1.6}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Auth\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Key()}{15}{subsubsection.3.9.1.6}
+\contentsline {subsubsection}{\numberline {3.9.1.7}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Id()}{15}{subsubsection.3.9.1.7}
+\contentsline {subsubsection}{\numberline {3.9.1.8}rules()}{15}{subsubsection.3.9.1.8}
+\contentsline {subsubsection}{\numberline {3.9.1.9}table\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Name()}{15}{subsubsection.3.9.1.9}
+\contentsline {subsubsection}{\numberline {3.9.1.10}validate\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Auth\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Key(\$auth\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}key)}{15}{subsubsection.3.9.1.10}
+\contentsline {subsubsection}{\numberline {3.9.1.11}validate\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Password(\$password)}{15}{subsubsection.3.9.1.11}
+\contentsline {section}{\numberline {3.10}app\textbackslash {}models\textbackslash {}Users Class Reference}{16}{section.3.10}
+\contentsline {subsection}{\numberline {3.10.1}Member Function Documentation}{16}{subsection.3.10.1}
+\contentsline {subsubsection}{\numberline {3.10.1.1}attribute\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Labels()}{16}{subsubsection.3.10.1.1}
+\contentsline {subsubsection}{\numberline {3.10.1.2}rules()}{16}{subsubsection.3.10.1.2}
+\contentsline {subsubsection}{\numberline {3.10.1.3}table\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Name()}{16}{subsubsection.3.10.1.3}

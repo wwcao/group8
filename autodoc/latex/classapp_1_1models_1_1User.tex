@@ -1,0 +1,147 @@
+\hypertarget{classapp_1_1models_1_1User}{}\section{app\textbackslash{}models\textbackslash{}User Class Reference}
+\label{classapp_1_1models_1_1User}\index{app\textbackslash{}models\textbackslash{}\+User@{app\textbackslash{}models\textbackslash{}\+User}}
+Inheritance diagram for app\textbackslash{}models\textbackslash{}User\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classapp_1_1models_1_1User}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classapp_1_1models_1_1User_a152870bc0603bd20b958f81a59b55cc4}{rules} ()
+\item 
+\hyperlink{classapp_1_1models_1_1User_a1a34c854f3c6326db1ebf80c5c6c55f0}{attribute\+Labels} ()
+\item 
+\hyperlink{classapp_1_1models_1_1User_ab78775bd44a0dbca8a40259c7b031cda}{add\+User} (\$model)
+\item 
+\hyperlink{classapp_1_1models_1_1User_a58f94c4955db10dd3f24e0a99d00586e}{get\+Id} ()
+\item 
+\hyperlink{classapp_1_1models_1_1User_a5ced30d7fa2a5dce6de833eb8a1d6d0f}{get\+Auth\+Key} ()
+\item 
+\hyperlink{classapp_1_1models_1_1User_a171ed47858a8b09e7ce70e73a569e304}{validate\+Auth\+Key} (\$auth\+\_\+key)
+\item 
+\hyperlink{classapp_1_1models_1_1User_a67d493691bfdc5908a43d7aa768bfb6e}{validate\+Password} (\$password)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classapp_1_1models_1_1User_afda20f0337d04f8ef5111dba15462aed}{table\+Name} ()
+\item 
+static \hyperlink{classapp_1_1models_1_1User_a25abf1d39633efd5d88a36c714f47ea5}{find\+Identity} (\$id)
+\item 
+static \hyperlink{classapp_1_1models_1_1User_a84e64540978468a276f7d715e1a9ab58}{find\+Identity\+By\+Access\+Token} (\$token, \$type=null)
+\item 
+static \hyperlink{classapp_1_1models_1_1User_a0a0594e710a25106fcb110132c9b6f83}{find\+By\+Username} (\$username)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!add\+User@{add\+User}}
+\index{add\+User@{add\+User}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{add\+User(\$model)}{addUser($model)}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}models\textbackslash{}\+User\+::add\+User (
+\begin{DoxyParamCaption}
+\item[{}]{\$model}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1models_1_1User_ab78775bd44a0dbca8a40259c7b031cda}{}\label{classapp_1_1models_1_1User_ab78775bd44a0dbca8a40259c7b031cda}
+Add a new user to the database 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classapp_1_1models_1_1SignupForm}{Signup\+Form}} & return Boolean\+: true if insertion succeed, otherwise, false. \\
+\hline
+\end{DoxyParams}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!attribute\+Labels@{attribute\+Labels}}
+\index{attribute\+Labels@{attribute\+Labels}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{attribute\+Labels()}{attributeLabels()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}models\textbackslash{}\+User\+::attribute\+Labels (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1models_1_1User_a1a34c854f3c6326db1ebf80c5c6c55f0}{}\label{classapp_1_1models_1_1User_a1a34c854f3c6326db1ebf80c5c6c55f0}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!find\+By\+Username@{find\+By\+Username}}
+\index{find\+By\+Username@{find\+By\+Username}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{find\+By\+Username(\$username)}{findByUsername($username)}}]{\setlength{\rightskip}{0pt plus 5cm}static app\textbackslash{}models\textbackslash{}\+User\+::find\+By\+Username (
+\begin{DoxyParamCaption}
+\item[{}]{\$username}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classapp_1_1models_1_1User_a0a0594e710a25106fcb110132c9b6f83}{}\label{classapp_1_1models_1_1User_a0a0594e710a25106fcb110132c9b6f83}
+Finds user by username
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$username} & string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+static$\vert$null 
+\end{DoxyReturn}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!find\+Identity@{find\+Identity}}
+\index{find\+Identity@{find\+Identity}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{find\+Identity(\$id)}{findIdentity($id)}}]{\setlength{\rightskip}{0pt plus 5cm}static app\textbackslash{}models\textbackslash{}\+User\+::find\+Identity (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classapp_1_1models_1_1User_a25abf1d39633efd5d88a36c714f47ea5}{}\label{classapp_1_1models_1_1User_a25abf1d39633efd5d88a36c714f47ea5}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!find\+Identity\+By\+Access\+Token@{find\+Identity\+By\+Access\+Token}}
+\index{find\+Identity\+By\+Access\+Token@{find\+Identity\+By\+Access\+Token}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{find\+Identity\+By\+Access\+Token(\$token, \$type=null)}{findIdentityByAccessToken($token, $type=null)}}]{\setlength{\rightskip}{0pt plus 5cm}static app\textbackslash{}models\textbackslash{}\+User\+::find\+Identity\+By\+Access\+Token (
+\begin{DoxyParamCaption}
+\item[{}]{\$token, }
+\item[{}]{\$type = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classapp_1_1models_1_1User_a84e64540978468a276f7d715e1a9ab58}{}\label{classapp_1_1models_1_1User_a84e64540978468a276f7d715e1a9ab58}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!get\+Auth\+Key@{get\+Auth\+Key}}
+\index{get\+Auth\+Key@{get\+Auth\+Key}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{get\+Auth\+Key()}{getAuthKey()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}models\textbackslash{}\+User\+::get\+Auth\+Key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1models_1_1User_a5ced30d7fa2a5dce6de833eb8a1d6d0f}{}\label{classapp_1_1models_1_1User_a5ced30d7fa2a5dce6de833eb8a1d6d0f}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{get\+Id()}{getId()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}models\textbackslash{}\+User\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1models_1_1User_a58f94c4955db10dd3f24e0a99d00586e}{}\label{classapp_1_1models_1_1User_a58f94c4955db10dd3f24e0a99d00586e}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!rules@{rules}}
+\index{rules@{rules}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{rules()}{rules()}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}models\textbackslash{}\+User\+::rules (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1models_1_1User_a152870bc0603bd20b958f81a59b55cc4}{}\label{classapp_1_1models_1_1User_a152870bc0603bd20b958f81a59b55cc4}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!table\+Name@{table\+Name}}
+\index{table\+Name@{table\+Name}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{table\+Name()}{tableName()}}]{\setlength{\rightskip}{0pt plus 5cm}static app\textbackslash{}models\textbackslash{}\+User\+::table\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classapp_1_1models_1_1User_afda20f0337d04f8ef5111dba15462aed}{}\label{classapp_1_1models_1_1User_afda20f0337d04f8ef5111dba15462aed}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!validate\+Auth\+Key@{validate\+Auth\+Key}}
+\index{validate\+Auth\+Key@{validate\+Auth\+Key}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{validate\+Auth\+Key(\$auth\+\_\+key)}{validateAuthKey($auth_key)}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}models\textbackslash{}\+User\+::validate\+Auth\+Key (
+\begin{DoxyParamCaption}
+\item[{}]{\$auth\+\_\+key}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1models_1_1User_a171ed47858a8b09e7ce70e73a569e304}{}\label{classapp_1_1models_1_1User_a171ed47858a8b09e7ce70e73a569e304}
+\index{app\+::models\+::\+User@{app\+::models\+::\+User}!validate\+Password@{validate\+Password}}
+\index{validate\+Password@{validate\+Password}!app\+::models\+::\+User@{app\+::models\+::\+User}}
+\subsubsection[{\texorpdfstring{validate\+Password(\$password)}{validatePassword($password)}}]{\setlength{\rightskip}{0pt plus 5cm}app\textbackslash{}models\textbackslash{}\+User\+::validate\+Password (
+\begin{DoxyParamCaption}
+\item[{}]{\$password}
+\end{DoxyParamCaption}
+)}\hypertarget{classapp_1_1models_1_1User_a67d493691bfdc5908a43d7aa768bfb6e}{}\label{classapp_1_1models_1_1User_a67d493691bfdc5908a43d7aa768bfb6e}
+Validates password
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$password} & string password to validate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean if password provided is valid for current user 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+models/User.\+php\end{DoxyCompactItemize}
