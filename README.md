@@ -8,16 +8,16 @@ DIRECTORY STRUCTURE
       basic/            contains main of yii framework(see README.md in basic)
       LoginDB/          contains .sql for database setup
       ScreenShots/      contains website screenshots
-      tests/        		contains test results
-      autodoc/					contains auto document in formats html and pdf
+      tests/       		contains test results
+      autodoc/			contains auto document in formats html and pdf
       
 ## Instruction:
 
 ### system requirement: 
 1. basic/vendor/* by extracting vendor.tar.gz
 2. PHP GD extension
-..1. install by $apt-get install php5-gd
-..2. start or restart server
+  1. install by $apt-get install php5-gd
+  2. start or restart server
 3. Setup codecept for test (Instruction in basic/tests) OPTIONAL!
 
 ### Setup Database:
@@ -32,7 +32,7 @@ Correction: alter groups.decripton to groups.decription if error 'no attribute/c
 2. run php -S localhost:<port #> 
 
 ### Run Test: (need to setup see README.md @basic/tests)
-- 1. codecept run @ basic/tests
+- codecept run @ basic/tests
 
 
 
