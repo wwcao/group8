@@ -1,7 +1,0 @@
-DOWNLOAD BASIC.ZIP from the github and use that, the unzipped directory in the repo is missing files for some reason and it won’t let me upload them, so download the zip and unzip and use that
-
-cd into the directory called "basic"
-cd into the directory called "web"
-start local server with this command in the web directory:
-    php -S localhost:8000
-type http://localhost:8000  into browser to see the website
