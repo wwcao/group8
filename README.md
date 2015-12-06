@@ -28,7 +28,8 @@ DIRECTORY STRUCTURE
 1. create databae userDB
 2. create tables users, profiles, groups, groupmembers, *interest* with queries @ LoginDB/userDB.sql
 3. GRANT ALL PRIVILEGES ON userDB. * TO 'csci_proj'@'localhost' identified by 'csci_proj';
-  table interest is optional
+  
+table interest is optional  
   
 
 ### Deployment: (need to setup)
