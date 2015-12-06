@@ -1,8 +1,9 @@
 # Hobby Hub
-CSCI 3308 Project
-Groupmember:
+CSCI 3308 Project__
+Groupmember:__
 Weipeng Cao, Lacey Conrad, Austin Linn, Dmytro Ryzhkov
-
+Description:__
+HobbyHub is the first website of its kind! Connect with users from around the world who share the same interests as you. Share your ideas, or read the ideas of others!
 DIRECTORY STRUCTURE
 -------------------
       basic/            contains main of yii framework(see README.md in basic)
