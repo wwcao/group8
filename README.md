@@ -26,9 +26,11 @@ DIRECTORY STRUCTURE
 4. Setup codecept for test (Instruction in basic/tests) OPTIONAL!
 
 ### Setup Database:
-1. create databae userDB
-2. create tables users, profiles, groups, groupmembers, *interest* with queries @ LoginDB/userDB.sql
-3. GRANT ALL PRIVILEGES ON userDB. * TO 'csci_proj'@'localhost' identified by 'csci_proj';
+1. go to /LoginDB
+2. create databae userDB
+3. create tables users, profiles, groups, groupmembers, *interest* with queries @ LoginDB/userDB.sql;
+   1. If command in step 3 doesnt work, can also do: source userDB.sql;
+4. GRANT ALL PRIVILEGES ON userDB. * TO 'csci_proj'@'localhost' identified by 'csci_proj';
   
 table interest is optional  
   
@@ -36,6 +38,7 @@ table interest is optional
 ### Deployment: (need to setup)
 1. go to basic/web
 2. run php -S localhost:<port #> 
+3. in your webbrowser go to localhost:<port #>
 
 ### Run Test: (need to setup see README.md @basic/tests)
 - codecept run @ basic/tests
