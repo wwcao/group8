@@ -8,12 +8,13 @@ Weipeng Cao, Lacey Conrad, Austin Linn, Dmytro Ryzhkov
 HobbyHub is the first website of its kind! Connect with users from around the world who share the same interests as you. Share your ideas, or read the ideas of others!
 DIRECTORY STRUCTURE
 -------------------
-      basic/            contains main of yii framework(see README.md in basic)
-      LoginDB/          contains .sql for database setup
-      ScreenShots/      contains website screenshots
-      tests/       		contains test results
-      autodoc/			contains auto document in formats html and pdf
-      
+    basic/          contains main of yii framework(see README.md in basic)
+    LoginDB/        contains .sql for database setup
+    ScreenShots/	contains website screenshots
+    tests/			contains test results
+    autodoc/		contains auto document in formats html and pdf
+	demo/			contains the video
+	       
 ## Instruction:
 
 ### system requirement: 
